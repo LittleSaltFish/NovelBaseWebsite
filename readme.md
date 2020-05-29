@@ -3,6 +3,7 @@
 ## ABOUT
 
 大概会做一个网络小说平台
+
 使用Django+BootStrap+MySQL
 
 ## GROUP MEMBERS
