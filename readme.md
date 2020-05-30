@@ -25,6 +25,6 @@
 |  Field  |   Type   | Null  |     Key     | Default  |     Extra      |
 | :-----: | :------: | :---: | :---------: | :------: | :------------: |  
 |   id    |  int(8)  |  No   |     PRI     | \<null\> | auto_increment |
-| img_url | char(50) |  No   | \\|\<null\> |    \\    |
+| img_url | char(50) |  No   | \\ |  \<null\> |    \\    |
 
 ~~我们的口号是：**将作大死进行到底！**~~ :+1:
