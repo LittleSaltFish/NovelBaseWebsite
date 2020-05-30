@@ -5,22 +5,12 @@
       <br/>
       <h1>你好，世界！</h1>
       <p>23333</p>
-      {%1urls = [
-        "https://s1.ax1x.com/2020/05/29/tK8lx1.png",
-        "https://s1.ax1x.com/2020/05/29/tK83Kx.png",
-        "https://s1.ax1x.com/2020/05/29/tK88r6.png",
-        "https://s1.ax1x.com/2020/05/29/tK8GqK.png",
-        "https://s1.ax1x.com/2020/05/29/tK8YVO.png",
-        "https://s1.ax1x.com/2020/05/29/tK8NIe.png",]
-      %}
-      {% for 1url in 1urls%}
-      <p>{%1url%}</p>
-      {%endfor%}
       <img src="https://s1.ax1x.com/2020/05/29/tK8lx1.png">
-      {% for img_url in 1urls%%}
+      <div>{{contents}}</div>
+      {% for row in contents%}
         <div class="col mb-4">
             <div class="card h-100">
-            <img src={{img_url}} class="card-img-top" alt="...">
+            <img src={{row.url}} class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>

@@ -8,7 +8,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'l@)o%+#enr7=^pg-ofu=)vtnn(m#))yo9jo+7qrbc3$^l!f8$6'
+SECRET_KEY = 'x2wq&0fe5vrm=3a%z=&7&lfys7j8kn++7r=7sl6$)hxo6@_p(a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -25,7 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'newapp',
+    'FrontPage'
 ]
 
 MIDDLEWARE = [
@@ -38,7 +38,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'mysite.urls'
+ROOT_URLCONF = 'NovelWebsite.urls'
 
 TEMPLATES = [
     {
@@ -56,7 +56,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'mysite.wsgi.application'
+WSGI_APPLICATION = 'NovelWebsite.wsgi.application'
 
 
 # Database
@@ -64,8 +64,18 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            # 数据库引擎（是mysql还是oracle等）
+            'ENGINE': 'django.db.backends.mysql',
+            # 数据库的名字
+            'NAME': 'novel',
+            # 连接mysql数据库的用户名
+            'USER': 'root',
+            # 连接mysql数据库的密码
+            'PASSWORD': '2.718281828',
+            # mysql数据库的主机地址
+            'HOST': '127.0.0.1',
+            # mysql数据库的端口号
+            'PORT': '3306',
     }
 }
 
