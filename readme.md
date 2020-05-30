@@ -49,3 +49,10 @@
 
 ## FUNCTION SHOW
 
+### 首页展示
+
+![](https://github.com/LittleSaltFish/NovelBaseWebsite/blob/master/README/sample1.gif)
+
+### 查询展示
+
+![](https://github.com/LittleSaltFish/NovelBaseWebsite/blob/master/README/sample2.gif)
