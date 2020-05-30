@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{%block content%}
+      <div class="container">
+      <br/>
+      <h1>你好，search！</h1>
+      <div>{{contents}}</div>
+      {%print content}
+      {% for row in contents%}
+      <div><h1>{{row.id}}</h1></div>
+      <div><h1>{{row.url}}</h1></div>
+        <div class="col mb-4">
+            <div class="card h-100">
+            <img src={{row.url}} class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+            </div>
+        </div>
+      {%endfor%}
+      </div>
+{%endblock%}
