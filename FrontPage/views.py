@@ -12,7 +12,7 @@ def home(request):
     for row in rows:
         rows_dic={'id':row[0],'url':row[1]}
         form_rows.append(rows_dic)
-    return render(request,'FrontPage.html',{"contents":form_rows})
+    return render(request,'FrontPage.html',{"all_rows":form_rows})
 
 def SearchResult(request):
     SearchInput=request.POST['SearchInput']
@@ -27,5 +27,5 @@ def SearchResult(request):
     for result in SearchResults:
         results_dic={'id':result[0],'url':result[1]}
         form_rows.append(results_dic)
-    return render(request,'SearchResult.html',{"contents":form_rows})
+    return render(request,'SearchResult.html',{"search_rows":form_rows})
 

@@ -4,9 +4,9 @@
       <div class="container">
       <br/>
       <h1>你好，search！</h1>
-      <div>{{contents}}</div>
-      {%print content}
-      {% for row in contents%}
+      <div>{{search_rows}}</div>
+      {%if search_rows%}
+      {% for row in search_rows%}
       <div><h1>{{row.id}}</h1></div>
       <div><h1>{{row.url}}</h1></div>
         <div class="col mb-4">
@@ -19,5 +19,8 @@
             </div>
         </div>
       {%endfor%}
+      {%else%}
+      <div><h1>404 NOT FOUND</h1></div>
+      {%endif%}
       </div>
 {%endblock%}
