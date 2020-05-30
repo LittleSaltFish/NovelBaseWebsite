@@ -30,7 +30,7 @@
 
 *still in test now*
 
-### Name : **novals**
+### Name : **novels**
 
 ### Tables
 
