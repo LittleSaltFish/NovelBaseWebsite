@@ -14,8 +14,9 @@
       - [user](#user)
       - [tag](#tag)
       - [fans](#fans)
+      - [book(add)](#bookadd)
       - [novel](#novel)
-  - [HTML MODLE DESIGN](#html-modle-design)
+  - [HTML MODEL DESIGN](#html-model-design)
   - [FUNCTION SHOW](#function-show)
     - [首页展示](#首页展示)
     - [查询展示](#查询展示)
@@ -42,6 +43,7 @@
 - [ ] 网页外观设计
 - [ ] 首页展示缓存
 - [ ] 异步任务处理
+- [ ] 富文本编辑器
 
 ## ABOUT
 
@@ -83,6 +85,12 @@
 | :---: | :---: | :---: | :---: | :-----: | :---: |
 |       |       |       |       |         |       |
 
+#### book(add)
+
+| Field | Type  | Null  |  Key  | Default | Extra |
+| :---: | :---: | :---: | :---: | :-----: | :---: |
+|       |       |       |       |         |       |
+
 #### novel
 
 |  Field  |   Type   | Null  |  Key  | Default  |     Extra      |
@@ -90,8 +98,7 @@
 |   id    |  int(8)  |  No   |  PRI  | \<null\> | auto_increment |
 | img_url | char(50) |  No   |  \\   | \<null\> |       \\       |
 
-
-## HTML MODLE DESIGN
+## HTML MODEL DESIGN
 
 - [x] home page
 - [ ] user page (self/others)
