@@ -25,7 +25,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'FrontPage'
+    'FrontPage',#主页
+    'tinymce',#富文本编辑器
 ]
 
 MIDDLEWARE = [
@@ -64,18 +65,12 @@ WSGI_APPLICATION = 'NovelWebsite.wsgi.application'
 
 DATABASES = {
     'default': {
-            # 数据库引擎（是mysql还是oracle等）
-            'ENGINE': 'django.db.backends.mysql',
-            # 数据库的名字
-            'NAME': 'novel',
-            # 连接mysql数据库的用户名
-            'USER': 'root',
-            # 连接mysql数据库的密码
-            'PASSWORD': '2.718281828',
-            # mysql数据库的主机地址
-            'HOST': '127.0.0.1',
-            # mysql数据库的端口号
-            'PORT': '3306',
+            'ENGINE': 'django.db.backends.mysql',# 数据库引擎（是mysql还是oracle等）
+            'NAME': 'novel',# 数据库的名字
+            'USER': 'root',# 连接mysql数据库的用户名
+            'PASSWORD': '2.718281828',# TODO 连接mysql数据库的密码
+            'HOST': '127.0.0.1',# mysql数据库的主机地址
+            'PORT': '3306',# mysql数据库的端口号
     }
 }
 
@@ -117,3 +112,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#富文本编辑器配置
+TINYMCE_DEFAULT_CONFIG={
+    'theme':'advanced',
+    'width':600,
+    'height':400,
+}

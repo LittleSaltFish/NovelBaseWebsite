@@ -20,7 +20,7 @@ def SearchResult(request):
     cursor = connection.cursor()
     # cursor.execute('insert into novels(img_url) values("testinsert2")')
     cursor.execute("select * from novels where id ="+str(SearchInput))
-    #此处应防范SQL注入，后期添加限制项
+    #TODO 此处应防范SQL注入，后期添加限制项
     SearchResults=cursor.fetchall()
     print(SearchResults)
     form_rows=[]

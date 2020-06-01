@@ -1,26 +1,33 @@
 {% extends 'base.html' %}
 
 {%block content%}
-      <div class="container">
-      <br/>
-      <h1>你好，search！</h1>
-      <div>{{search_rows}}</div>
-      {%if search_rows%}
-      {% for row in search_rows%}
-      <div><h1>{{row.id}}</h1></div>
-      <div><h1>{{row.url}}</h1></div>
-        <div class="col mb-4">
-            <div class="card h-100">
-            <img src={{row.url}} class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-            </div>
-        </div>
-      {%endfor%}
-      {%else%}
-      <div><h1>404 NOT FOUND</h1></div>
-      {%endif%}
+<div class="container">
+  <br />
+  <h1>搜索</h1><!-- TEMPCODE -->
+  <div>{{search_rows}}</div>
+  {%if search_rows%}
+  {% for row in search_rows%}
+  <div>
+    <h1>{{row.id}}</h1><!-- TEMPCODE -->
+  </div>
+  <div>
+    <h1>{{row.url}}</h1><!-- TEMPCODE -->
+  </div>
+  <div class="col mb-4">
+    <div class="card h-100">
+      <img src={{row.url}} class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+          content. This content is a little bit longer.</p>
       </div>
+    </div>
+  </div>
+  {%endfor%}
+  {%else%}
+  <div>
+    <h1>404 NOT FOUND</h1>
+  </div>
+  {%endif%}
+</div>
 {%endblock%}

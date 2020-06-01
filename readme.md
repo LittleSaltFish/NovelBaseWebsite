@@ -11,11 +11,12 @@
   - [DATABASE STRUCTURE DESIGN](#database-structure-design)
     - [Name : **novels**](#name--novels)
     - [Tables](#tables)
-      - [user](#user)
+      - [user(each user has a table,name as userid)](#usereach-user-has-a-tablename-as-userid)
       - [tag](#tag)
       - [fans](#fans)
-      - [book(add)](#bookadd)
-      - [novel](#novel)
+      - [book(each book has a table,name as bookid)](#bookeach-book-has-a-tablename-as-bookid)
+      - [book_id](#book_id)
+      - [novel(add about the commit)](#noveladd-about-the-commit)
   - [HTML MODEL DESIGN](#html-model-design)
   - [FUNCTION SHOW](#function-show)
     - [首页展示](#首页展示)
@@ -29,6 +30,7 @@
 
 - [ ] 数据库设计
 - [ ] 语句设计
+- [ ] 作为备份的触发器和表结构设计
 
 ### 网页端
 
@@ -67,42 +69,76 @@
 
 ### Tables
 
+#### book_backup
+
+(put all novels in one table to avoid mass)
+
+| Field | Type  | Null  |  Key  | Default | Extra |
+| :---: | :---: | :---: | :---: | :-----: | :---: |
+|       |       |       |       |         |       |
+
+#### user_backup
+
+(put all users in one table to avoid mass)
+
+| Field | Type  | Null  |  Key  | Default | Extra |
+| :---: | :---: | :---: | :---: | :-----: | :---: |
+|       |       |       |       |         |       |
+
 #### user
 
-| Field | Type  | Null  |  Key  | Default | Extra |
-| :---: | :---: | :---: | :---: | :-----: | :---: |
-|       |       |       |       |         |       |
-
-#### tag
+(each user has a table , name as userid)
 
 | Field | Type  | Null  |  Key  | Default | Extra |
 | :---: | :---: | :---: | :---: | :-----: | :---: |
 |       |       |       |       |         |       |
 
-#### fans
+#### user_id
+
+(link user's detail information with id)
 
 | Field | Type  | Null  |  Key  | Default | Extra |
 | :---: | :---: | :---: | :---: | :-----: | :---: |
 |       |       |       |       |         |       |
 
-#### book(add)
+#### book
+
+(each book has a table , name as bookid)
 
 | Field | Type  | Null  |  Key  | Default | Extra |
 | :---: | :---: | :---: | :---: | :-----: | :---: |
 |       |       |       |       |         |       |
 
-#### novel
+#### ~~novel~~book_id
+
+(link book's detail with bookid)
 
 |  Field  |   Type   | Null  |  Key  | Default  |     Extra      |
 | :-----: | :------: | :---: | :---: | :------: | :------------: |
 |   id    |  int(8)  |  No   |  PRI  | \<null\> | auto_increment |
 | img_url | char(50) |  No   |  \\   | \<null\> |       \\       |
 
+#### tag
+
+(each tag has a table , name as bookid)
+
+| Field | Type  | Null  |  Key  | Default | Extra |
+| :---: | :---: | :---: | :---: | :-----: | :---: |
+|       |       |       |       |         |       |
+
+#### tag_id
+
+(link tag's detail with bookid)
+
+| Field | Type  | Null  |  Key  | Default | Extra |
+| :---: | :---: | :---: | :---: | :-----: | :---: |
+|       |       |       |       |         |       |
+
 ## HTML MODEL DESIGN
 
 - [x] home page
 - [ ] user page (self/others)
-- [ ] noval page
+- [ ] novel page
 - [ ] write page
 - [x] search page
 
