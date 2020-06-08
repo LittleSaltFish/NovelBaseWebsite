@@ -162,7 +162,6 @@
 
 |        Field         |   Type    | Null  |  Key  | Default |     Extra      |
 | :------------------: | :-------: | :---: | :---: | :-----: | :------------: |
-| :------------------: | :-------: | :---: | :---: | :-----: | :------------: |
 |       book_id        |  int(8)   |       |  PRI  |         | auto_increment |
 |     book_img_url     | char(50)  |       |       |  <-1>   |                |
 |  book_introduction   | char(500) |       |       |         |                |
