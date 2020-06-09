@@ -24,6 +24,11 @@
 
 <!-- /TOC -->
 
+## LATEST UPGRADE
+
+- 新增了管理员系统
+- 解决了语言、时区问题
+
 ## PROGRESS
 
 ### 数据库端
@@ -40,7 +45,7 @@
 - [ ] 弹出框操作
 - [ ] 登录相关
 - [x] 搜索防空跳转 @LittleSaltFish
- - [ ] 防sql注入 <!-- NOTE 可以尝试更改结束符防注入/设计权限防止操作 -->
+- [ ] 防sql注入 <!-- NOTE 可以尝试更改结束符防注入/设计权限防止操作 -->
 - [ ] 图片自动调节大小
 - [ ] 避免硬编码密码
 - [ ] 网页外观设计
@@ -48,6 +53,8 @@
 - [ ] 异步任务处理
 - [ ] 富文本编辑器
 - [ ] 评论区预加载技术（强制要求文末按按钮打开评论）
+- [x] 用户系统-超级管理员 @LittleSaltFish
+- [ ] 用户系统-普通用户
 
 ## ABOUT
 
@@ -77,7 +84,9 @@
 
 ### Tables
 
-#### book_backup
+#### ~~book_backup~~
+
+**freeze all backup**
 
 (put all novels in one table to avoid mass)
 
@@ -95,7 +104,9 @@
 | book_introduction | char(500) |       |       |         |                |
 |   chapter_count   |  int(10)  |       |       |         |                |
 
-#### user_backup
+#### ~~user_backup~~
+
+**freeze all backup**
 
 (put all users in one table to avoid mass)
 

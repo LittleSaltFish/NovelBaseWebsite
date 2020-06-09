@@ -25,8 +25,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'FrontPage',#主页
-    'tinymce',#富文本编辑器
+    'FrontPage',  # 主页
+    'tinymce',  # 富文本编辑器
 ]
 
 MIDDLEWARE = [
@@ -44,7 +44,7 @@ ROOT_URLCONF = 'NovelWebsite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -65,12 +65,12 @@ WSGI_APPLICATION = 'NovelWebsite.wsgi.application'
 
 DATABASES = {
     'default': {
-            'ENGINE': 'django.db.backends.mysql',# 数据库引擎（是mysql还是oracle等）
-            'NAME': 'novel',# 数据库的名字
-            'USER': 'root',# 连接mysql数据库的用户名
-            'PASSWORD': '2.718281828',# TODO 连接mysql数据库的密码
-            'HOST': '127.0.0.1',# mysql数据库的主机地址
-            'PORT': '3306',# mysql数据库的端口号
+        'ENGINE': 'django.db.backends.mysql',  # 数据库引擎（是mysql还是oracle等）
+        'NAME': 'novel',  # 数据库的名字
+        'USER': 'root',  # 连接mysql数据库的用户名
+        'PASSWORD': '2.718281828',  # TODO 连接mysql数据库的密码
+        'HOST': '127.0.0.1',  # mysql数据库的主机地址
+        'PORT': '3306',  # mysql数据库的端口号
     }
 }
 
@@ -97,9 +97,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-hans'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
+
 
 USE_I18N = True
 
@@ -113,9 +114,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-#富文本编辑器配置
-TINYMCE_DEFAULT_CONFIG={
-    'theme':'advanced',
-    'width':600,
-    'height':400,
+# 富文本编辑器配置
+TINYMCE_DEFAULT_CONFIG = {
+    #  'theme':'advanced',
+    # NOTE advanced主题会出现404无法加载的情况
+    'width': 600,
+    'height': 1200,
 }
