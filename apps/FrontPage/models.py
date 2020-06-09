@@ -9,7 +9,7 @@ from db.base_model import BaseModel
 # class user(AbstractUser, BaseModel):
 # TODO 待改名为chapter的app
 
-class chapter(BaseModel):
+class Chapter(BaseModel):
     chapter_id = models.IntegerField(
         verbose_name='章节编号', primary_key=True)
     text = HTMLField(verbose_name='章节正文')
