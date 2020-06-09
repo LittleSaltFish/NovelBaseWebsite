@@ -1,7 +1,9 @@
 import os
+import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))  # 处理包路径问题，如果没有，导入时均要加app.
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,7 +27,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'FrontPage',  # 主页
+    'FrontPage',  # NOTE 主页 待改成chapter
+    'star',  # 收藏
+    'user',  # 用户
+    'book',  # 书籍
     'tinymce',  # 富文本编辑器
 ]
 
@@ -93,6 +98,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL='user.USER'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/

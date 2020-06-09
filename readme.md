@@ -28,6 +28,7 @@
 
 - 新增了管理员系统
 - 解决了语言、时区问题
+- 优化了文件结构，app全搁文件夹里了
 
 ## PROGRESS
 
@@ -167,7 +168,7 @@
 |   root_id   | int(8) |       |       |         |                |
 |   user_id   | int(8) |       |       |         |                |
 
-#### book_massage
+#### book~~_massage~~
 
 (each book has a table , name as bookid)
 
