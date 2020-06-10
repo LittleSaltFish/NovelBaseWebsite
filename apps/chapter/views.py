@@ -4,9 +4,7 @@ from django.views.generic import View
 
 # Create your views here.
 
-class BookDetailView(View):
-    def get(self,request):
-        return render(request,'BookDetail.html')
+
 
 # def home(request):
 #     cursor = connection.cursor()

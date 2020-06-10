@@ -10,7 +10,9 @@
   {% for row in all_rows%}
   <div class="col mb-4">
     <div class="card h-100">
+      {%if not row.book_img_url == "-1" %}
       <img src={{row.book_img_url}} class="card-img-top" alt="...">
+      {%endif%}
       <div class="card-body">
         <h5 class="card-title">{{row.book_name}}</h5>
         <p class="card-text">{{row.book_introduction}}</p>
