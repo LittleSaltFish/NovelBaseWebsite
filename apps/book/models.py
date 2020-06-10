@@ -20,6 +20,6 @@ class Book(BaseModel):
         verbose_name='字数统计')
 
     class Meta:
-        db_table = 'df_book'
+        db_table = 'book'
         verbose_name = '书籍信息库'
         verbose_name_plural = verbose_name

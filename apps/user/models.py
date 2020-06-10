@@ -10,6 +10,6 @@ class User(AbstractUser,BaseModel):
     
     
     class Meta:
-        db_table='df_user'
+        db_table='user'
         verbose_name='用户库'
         verbose_name_plural=verbose_name

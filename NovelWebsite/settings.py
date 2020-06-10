@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'FrontPage',  # NOTE 主页 待改成chapter
+    'chapter',  # NOTE 主页 待改成chapter
     'star',  # 收藏
     'user',  # 用户
     'book',  # 书籍
@@ -98,7 +98,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_USER_MODEL='user.USER'
+AUTH_USER_MODEL = 'user.USER'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/

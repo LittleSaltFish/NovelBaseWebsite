@@ -17,6 +17,6 @@ class Star(BaseModel):
         verbose_name='书签位置')
 
     class Meta:
-        db_table = 'df_star'
+        db_table = 'star'
         verbose_name = '收藏库'
         verbose_name_plural = verbose_name

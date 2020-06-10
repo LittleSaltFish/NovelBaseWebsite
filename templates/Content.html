@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{%block content%}
+
+<div class="container">
+    <br />
+    <h1>书籍详情</h1><!-- TEMPCODE -->
+    <p>23333</p><!-- TEMPCODE -->
+    <img src="https://s1.ax1x.com/2020/05/29/tK8lx1.png"><!-- TEMPCODE -->
+    <div>{{all_rows}}</div><!-- TEMPCODE -->
+    {% for row in all_rows%}
+    <div class="col mb-4">
+        <div class="card h-100">
+            <img src={{row.chapter_img_url}} class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{row.chapter_name}}</h5>
+                <p class="card-text">{{row.chapter_introduction}}</p>
+                <button type="button" class="btn btn-info" type="submit">给我看小说内容！麻溜的！</button>
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+    <!-- <div class="col-sm-6">
+            <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+            </div>
+        </div> -->
+</div>
+
+
+{%endblock%}
