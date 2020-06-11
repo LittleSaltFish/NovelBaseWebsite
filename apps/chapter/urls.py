@@ -1,11 +1,9 @@
-from django.urls import path, include
+from django.urls import path, include,reverse
 from django.conf.urls import url
+from chapter.views import ChapterDetailView
 
 urlpatterns = [
-    # # path('', views.home, name="home"),
-    # path('Search/', views.SearchResult, name="Search"),
-    # path('SignUp/', views.SignUpResult, name="SignUp"),
-    # path('SignIn/', views.SignInResult, name="SignIn"),
-    # path('Content/', views.ContentReault, name="Content"),SelectChapterReault, name="SelectChapter"),
+    url(r'^Content/(?P<chapter_id>\d+)',
+        ChapterDetailView.as_view(), name='BookDetail')
 
 ]

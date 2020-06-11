@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {%block content%}
+
+
 <div class="container">
     <br />
     <h1>书籍详情</h1><!-- TEMPCODE -->
@@ -22,7 +24,8 @@
                 <p class="card-text">{{row.book_id}}</p>
                 <p class="card-text">{{row.book_img_url}}</p>
                 <p class="card-text">{{row.book_introduction}}</p>
-                <button type="button" class="btn btn-info" type="submit">给我章节信息！麻溜的！</button>
+                <a href='/Content/{{row.chapter_id}}' class="btn btn-primary btn-lg active" role="button"
+                    aria-pressed="true">给我章节内容！麻溜的！</a>
             </div>
         </div>
     </div>

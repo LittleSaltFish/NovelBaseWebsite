@@ -4,18 +4,27 @@
 
 <div class="container">
     <br />
-    <h1>书籍详情</h1><!-- TEMPCODE -->
+    <h1>章节详情</h1><!-- TEMPCODE -->
     <p>23333</p><!-- TEMPCODE -->
     <img src="https://s1.ax1x.com/2020/05/29/tK8lx1.png"><!-- TEMPCODE -->
     <div>{{all_rows}}</div><!-- TEMPCODE -->
     {% for row in all_rows%}
     <div class="col mb-4">
         <div class="card h-100">
+            {%if not row.chapter_img_url == "-1" %}
             <img src={{row.chapter_img_url}} class="card-img-top" alt="...">
+            {%endif%}
             <div class="card-body">
                 <h5 class="card-title">{{row.chapter_name}}</h5>
                 <p class="card-text">{{row.chapter_introduction}}</p>
-                <button type="button" class="btn btn-info" type="submit">给我看小说内容！麻溜的！</button>
+                <p class="card-text">{{row.updatetime}}</p>
+                <p class="card-text">{{row.createtime}}</p>
+                <p class="card-text">{{row.is_delete}}</p>
+                <p class="card-text">{{row.chapter_id}}</p>
+                <p class="card-text">{{row.chapter_img_url}}</p>
+                <p class="card-text">{{row.chapter_introduction}}</p>
+                <dd>{{row.text|safe}}</dd>
+                <!-- 此处记得safe，不然会转义 -->
             </div>
         </div>
     </div>
