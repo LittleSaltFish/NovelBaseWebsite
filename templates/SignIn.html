@@ -1,40 +1,100 @@
 {% extends 'base.html' %}
 
+
+
 {%block content%}
 
 <h1>你注册吗</h1>
 
-<div class="input-group mb-3">
-    <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">你叫啥？</span>
-    </div>
-    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-        aria-describedby="basic-addon1">
-</div>
-<div class="input-group mb-3">
-    <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">给个密码？</span>
-    </div>
-    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-        aria-describedby="basic-addon1">
-</div>
-<div class="input-group mb-3">
-    <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">丫再说一遍？</span>
-    </div>
-    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-        aria-describedby="basic-addon1">
-</div>
-<div class="input-group mb-3">
-    <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">电邮拿来！</span>
-    </div>
-    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-        aria-describedby="basic-addon1">
-</div>
 
-<button type="button" class="btn btn-success">快点注册</button>
-<button type="button" class="btn btn-danger">劳资不干了</button>
+<form method="POST" action="/user/SignInHandle">
+    {% csrf_token %}
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">你叫啥？</span>
+        </div>
+        <input type="text" name="user_name" id="user_name" class="form-control" placeholder="丫赶紧的~"
+            aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon2">给个密码？</span>
+        </div>
+        <input type="text" name="user_pwd" id="user_pwd" class="form-control" placeholder="长点心吧，设长点儿......"
+            aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon3">丫再说一遍？</span>
+        </div>
+        <input type="text" name="user_cpwd" id="user_cpwd" class="form-control" placeholder="声微，饭否？" aria-label="
+            Username" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon4">电邮拿来！</span>
+        </div>
+        <input type="text" name="user_email" id="user_email" class="form-control" placeholder="没有就瞎写一个，反正我们不做验证"
+            aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <div class="agreement">
+        <input type="checkbox" name="allow" id="allow">
+        同意<a href="#" data-toggle="modal" data-target="#show_licence">协议</a>
+    </div>
+    <button type="button" class="btn btn-danger">劳资不干了</button>
+    <button type="button" type="submit" class="btn btn-success">快尼玛的注册</button>
+</form>
+
+<div class="modal fade" id="show_licence" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel">还<b>真他喵的</b>有人点进来看协议？</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group pre-scrollable">
+                        <!-- <label for="message-text" class="control-label"> -->
+                        <dd>
+                            拉倒吧<br>
+                            莫得协议<br>
+                            散了散了<br>
+                            ╔══╗ ♪<br>
+                            ║██║ ♫<br>
+                            ║ ( ● ) ♫<br>
+                            ╚══╝♪ ♪<br>
+                            ╔══╗ ♪<br>
+                            ║██║ ♫<br>
+                            ║ ( ● ) ♫<br>
+                            ╚══╝♪ ♪<br>
+                            ╔══╗ ♪<br>
+                            ║██║ ♫<br>
+                            ║ ( ● ) ♫<br>
+                            ╚══╝♪ ♪<br>
+                            ╔══╗ ♪<br>
+                            ║██║ ♫<br>
+                            ║ ( ● ) ♫<br>
+                            ╚══╝♪ ♪<br>
+                            ╔══╗ ♪<br>
+                            ║██║ ♫<br>
+                            ║ ( ● ) ♫<br>
+                            ╚══╝♪ ♪<br>
+
+                            <!-- </label> -->
+                        </dd>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-default">返回</button> -->
+                <button type="button" class="btn btn-primary" data-dismiss="modal">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 {%endblock%}
