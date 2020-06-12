@@ -22,6 +22,8 @@ def SignInHandle(request):
     user_email = request.POST.get('user_email')
     allow = request.POST.get('allow')
 
+    print(user_name,user_pwd,user_cpwd,user_email)
+    
     # 数据完整性校验
     if not all([user_name, user_pwd, user_cpwd, user_email]):
         return render(request, 'SignIn.html', {'errmsg': '数据不完整'})

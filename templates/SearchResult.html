@@ -21,7 +21,8 @@
       <div class="card-body">
         <h5 class="card-title">{{row.book_name}}</h5>
         <p class="card-text">{{row.book_introduction}}</p>
-        <button type="button" class="btn btn-info" type="submit">给我看！麻溜的！</button>
+        <a href='/BookDetail/{{row.book_id}}' class="btn btn-primary btn-lg active" role="button"
+          aria-pressed="true">给我章节信息！麻溜的！</a>
       </div>
     </div>
   </div>

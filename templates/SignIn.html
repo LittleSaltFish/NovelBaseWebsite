@@ -1,49 +1,107 @@
 {% extends 'base.html' %}
 
-
-
 {%block content%}
 
 <h1>你注册吗</h1>
 
-
-<form method="POST" action="/user/SignInHandle">
+<!-- <form method="POST" action="/user/SignInHandle">
     {% csrf_token %}
     <div class="input-group mb-3">
         <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">你叫啥？</span>
+            <span class="input-group-text">你叫啥？</span>
         </div>
-        <input type="text" name="user_name" id="user_name" class="form-control" placeholder="丫赶紧的~"
-            aria-label="Username" aria-describedby="basic-addon1">
+        <input type="text" name="user_name" id="user_name" class="form-control" placeholder="丫赶紧的~">
     </div>
+    <span class="error_tip">提示信息</span>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon2">给个密码？</span>
+            <span class="input-group-text">给个密码？</span>
         </div>
-        <input type="text" name="user_pwd" id="user_pwd" class="form-control" placeholder="长点心吧，设长点儿......"
-            aria-label="Username" aria-describedby="basic-addon1">
+        <input type="text" name="user_pwd" id="user_pwd" class="form-control" placeholder="长点心吧，设长点儿......">
     </div>
+    <span class="error_tip">提示信息</span>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon3">丫再说一遍？</span>
         </div>
-        <input type="text" name="user_cpwd" id="user_cpwd" class="form-control" placeholder="声微，饭否？" aria-label="
-            Username" aria-describedby="basic-addon1">
+        <input type="text" name="user_cpwd" id="user_cpwd" class="form-control" placeholder="声微，饭否？">
     </div>
+    <span class="error_tip">提示信息</span>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon4">电邮拿来！</span>
         </div>
-        <input type="text" name="user_email" id="user_email" class="form-control" placeholder="没有就瞎写一个，反正我们不做验证"
-            aria-label="Username" aria-describedby="basic-addon1">
+        <input type="text" name="user_email" id="user_email" class="form-control" placeholder="没有就瞎写一个，反正我们不做验证">
     </div>
+    <span class="error_tip">提示信息</span>
     <div class="agreement">
         <input type="checkbox" name="allow" id="allow">
         同意<a href="#" data-toggle="modal" data-target="#show_licence">协议</a>
     </div>
+    <span class="error_tip">提示信息</span>
     <button type="button" class="btn btn-danger">劳资不干了</button>
     <button type="button" type="submit" class="btn btn-success">快尼玛的注册</button>
 </form>
+{{errmsg}} -->
+
+
+<div class="container">
+    <h2 class="text-center">请输入注册信息</h2>
+    <form class="form-horizontal" role="form" action="/user/SignInHandle" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="inputUserName" class="col-sm-2 control-label">用户名</label>
+            <div class="col-sm-10">
+                <input name="user_name" type="text" class="form-control" id="user_name" placeholder="请输入用户名">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword" class="col-sm-2 control-label">密码</label>
+            <div class="col-sm-10">
+                <input name="user_pwd" type="text" class="form-control" id="user_pwd" placeholder="请输入密码">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputCpwd" class="col-sm-2 control-label">确认</label>
+            <div class="col-sm-10">
+                <input name="user_cpwd" type="text" class="form-control" id="user_cpwd" placeholder="请确认">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail" class="col-sm-2 control-label">邮箱</label>
+            <div class="col-sm-10">
+                <input name="user_email" type="text" class="form-control" id="user_email" placeholder="请输入邮箱">
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" name="allow" id="allow">
+            同意<a href="#" data-toggle="modal" data-target="#show_licence">协议</a>
+        </div>
+
+        <div class="form-group" id="right">
+            <div class="col-sm-10">
+                {{register_form.captcha}}
+                <label for="" id="show"></label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>{{errmsg}}</h3>
+            <!-- <h3>{{register_form.errors.email}}</h3>
+            <h3>{{register_form.errors.password}}</h3>
+            <h3>{{register_form.errors.captcha}}</h3>
+            <h3>{{msg}}</h3> -->
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button id="submit" type="submit" class="btn btn-default btn-block btn-success">注册</button>
+                <button id="cancel" href={{home}} type="button" class="btn-default btn-block btn-danger">劳资不干了</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
 
 <div class="modal fade" id="show_licence" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
