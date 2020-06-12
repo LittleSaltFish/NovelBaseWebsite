@@ -47,7 +47,7 @@
 
 <div class="container">
     <h2 class="text-center">请输入注册信息</h2>
-    <form class="form-horizontal" role="form" action="/user/SignInHandle" method="POST">
+    <form class="form-horizontal" role="form" action="/user/SignIn" method="POST">
         {% csrf_token %}
         <div class="form-group">
             <label for="inputUserName" class="col-sm-2 control-label">用户名</label>
@@ -78,12 +78,12 @@
             同意<a href="#" data-toggle="modal" data-target="#show_licence">协议</a>
         </div>
 
-        <div class="form-group" id="right">
+        <!-- <div class="form-group" id="right">
             <div class="col-sm-10">
                 {{register_form.captcha}}
                 <label for="" id="show"></label>
             </div>
-        </div>
+        </div> -->
 
         <div class="form-group">
             <h3>{{errmsg}}</h3>
@@ -95,7 +95,9 @@
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <button id="submit" type="submit" class="btn btn-default btn-block btn-success">注册</button>
-                <button id="cancel" href={{home}} type="button" class="btn-default btn-block btn-danger">劳资不干了</button>
+                <a id="cancel" href="{%url 'home'%}" class="btn btn-default btn-block btn-danger" role="button">劳资不干了</a>
+                <!-- TODO 这块点击跳转没做 -->
+                <!-- DONE  -->
             </div>
         </div>
     </form>

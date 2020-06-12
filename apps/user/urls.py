@@ -1,10 +1,9 @@
 from django.urls import path, include
 from django.conf.urls import url
-from user.views import SignUp, SignIn, SignInHandle
+from user.views import SignUpView, SignInView
 
 
 urlpatterns = [
-    url(r'^SignIn$',SignIn,name='SignIn'),
-    url(r'^SignUp$', SignUp, name='SignUp'),
-    url(r'^SignInHandle$', SignInHandle, name='SignInHandle')
+    url(r'^SignIn$', SignInView.as_view(), name='SignIn'),
+    url(r'^SignUp$', SignUpView.as_view(), name='SignUp'),
 ]
