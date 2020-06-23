@@ -168,7 +168,7 @@
 |   root_id   | int(8) |       |       |         |                |
 |   user_id   | int(8) |       |       |         |                |
 
-#### book~~_massage~~
+#### book~~massage~~
 
 (each book has a table , name as bookid)
 
@@ -194,8 +194,8 @@
 | chapter_introduction | char(500) |       |       |         |                |
 |   chapter_hot_rate   |  int(10)  |       |       |         |                |
 |     chapter_name     | char(50)  |       |       |         |                |
-|       user_id        |  int(8)   |       |       |  <-1>   |                |
 |  chapter_word_count  |  int(10)  |       |       |         |                |
+|  content  |  char(5000)  |       |       |         |                |
 
 #### chapter_comment
 
@@ -222,7 +222,7 @@
 |   Field    |  Type  | Null  |  Key  | Default | Extra |
 | :--------: | :----: | :---: | :---: | :-----: | :---: |
 |   tag_id   | int(8) |       |  PRI  |         |       |
-|   tag_id   | int(8) |       |       |         |       |
+|   book_id   | int(8) |       |       |         |       |
 | chapter_id | int(8) |       |       |         |       |
 
 #### tag_massage
