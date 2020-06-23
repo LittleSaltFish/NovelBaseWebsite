@@ -36,7 +36,6 @@ class BookDetailView(View):
         cursor = connection.cursor()
         # 获取书籍信息
         # TODO 后期尝试不用raw写
-        # DONE 三块代码有点冗余，可以往一个函数里修正
         cursor.execute("select * from chapter where book_id_id="+str(book.book_id))
         rows = cursor.fetchall()
         form_rows=get_chapter(rows)

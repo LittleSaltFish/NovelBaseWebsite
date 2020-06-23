@@ -28,6 +28,16 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
+        {%if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="#" aria-disabled="true" data-toggle="modal"
+            data-target="#sing-out-identify">welcome：{{user.username}}</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#" aria-disabled="true" data-toggle="modal"
+            data-target="#sing-out-identify">sign out</a>
+        </li>
+        {%else%}
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -41,12 +51,11 @@
             <a class="dropdown-item" href="#">Something else here</a>
           </div>
         </li>
-        <!-- TODO 待处理登录切换显示  -->
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Sign in to open up a brand new
-            world!</a>
+          <a class="nav-link disabled" href="{% url 'SignUp' %}"  aria-disabled="true">Sign in to open up a
+            brand new world!</a>
         </li>
-        <!-- TODO 待处理登录切换显示  -->
+        {% endif %}
       </ul>
       <form class="form-inline my-2 my-lg-0" method="POST" action="{% url 'Search'%}">
         {% csrf_token %}
@@ -55,6 +64,24 @@
       </form>
     </div>
   </nav>
+
+  <div class="modal fade" id="sing-out-identify" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLabel">要登出吗？<b>你确定不是手滑？</b></h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-footer">
+          <a id="cancel" href="{%url 'LogOut'%}" class=" btn btn-danger" role="button">放劳资出去</a>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">再看会</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   {%block content%}
   <!-- 此处插入网页内容 -->
   {%endblock%}

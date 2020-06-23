@@ -4,10 +4,17 @@ import re
 from django.urls import reverse
 from django.db import connection
 from django.views.generic import View
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 
+class LogOutView(View):
+    '''退出登录'''
+    def get(self,request):
+        #清除用户session信息
+        logout(request)
+        #返回首页
+        return redirect(reverse('home'))
 
 class SignInView(View):
     '''注册视图类'''
@@ -59,7 +66,21 @@ class SignInView(View):
         User.objects.create_user(user_name, user_email, user_pwd)
 
         # 返回应答,到首页
-        return redirect(reverse('home'))
+        # NOTE 这样写注册完还得二次登录，用户体验不好
+        # return redirect(reverse('home'))
+        
+        # 直接登录，提升用户体验
+        # django内置校验
+        user = authenticate(username=user_name, password=user_pwd)
+        if user is not None:
+            # 账号密码正确
+            # 记录登陆状态
+            login(request, user)
+
+            #跳转首页
+            return redirect(reverse('home'))
+        else:
+            return render(request, 'SignUp.html', {'errmsg': '用户名or密码错误'})
 
 
 class SignUpView(View):
