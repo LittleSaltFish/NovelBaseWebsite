@@ -100,6 +100,16 @@
   <!-- 此处插入网页内容 -->
   {%endblock%}
 
+    <footer class="text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <p>Copyright © 咸鱼项目组. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.slim.min.js"
@@ -146,12 +156,12 @@
       if (hour < 12) {
         return '<b>死宅</b>早上好啊';
       } else {
-        return '<b>死宅</b>下午好啊'
+        return '<b>死宅</b>下午好啊';
       }
     }
 
     function content() {
-      if (click > 1 && click<5) {
+      if (click > 1 && click < 5) {
         return '...';
       }
       date = new Date();
@@ -192,6 +202,11 @@
         m.style.opacity = 0.01;
         // grayscale($("body"));
       }
+    }
+
+    function hide() {
+      m = document.getElementById("girl");
+      m.style.opacity = 0.01;
     }
   </script>
 

@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{%block content%}
+{% for row in all_rows%}
+<div class="page-header text-center">
+  <h1><small>{{row.chapter_name}}</small></h1>
+</div>
+<div class="productitemdescription">
+  <div style="text-align:center">
+    <div class="addthis_toolbox addthis_default_style">
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+      <a class="addthis_button_pinterest_pinit"></a>
+      <a class="addthis_counter addthis_pill_style"></a>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-5138665c7d816d3f">
+  </script>
+  <div style="text-align:center">
+    <div class="card">
+    <p class=text-center">
+      {{row.text|safe}}
+    </p>
+    </div>
+  </div>
+</div>
+<p></p>
+{%endfor%}
+<div style="text-align:center">
+  <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+    <button type="button" class="btn btn-light btn-lg">上一章</button>
+    <button type="button" class="btn btn-light btn-lg">目录</button>
+    <button type="button" class="btn btn-light btn-lg">下一章</button>
+  </div>
+  <br>
+  <hr />
+</div>
+<ul class="breadcrumb">
+  <li class="active">评论区</li>
+</ul>
+<!---评论区------>
+<table class="table">
+  <tr>
+    <td rowspan="3"></td>
+    <td>用户名嘟嘟</td>
+  </tr>
+  <tr>
+    <td>写的很随意呢？你觉得呢？</td>
+  </tr>
+  <tr>
+    <td>2018-03-26 18:02:00</td>
+  </tr>
+  <tr>
+    <td rowspan="3"></td>
+    <td>用户名我是大鹏</td>
+  </tr>
+  <tr>
+    <td>还行啊，别太苛刻</td>
+  </tr>
+  <tr>
+    <td>2018-03-26 18:04:00</td>
+  </tr>
+</table>
+<ul class="breadcrumb">
+  <li class="active">写评论</li>
+</ul>
+<!---写评论------>
+<div style="text-align:center">
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="text...">
+    <span class="input-group-btn">
+      <button class="btn btn-light" type="button">评论</button>
+    </span>
+  </div><!-- /input-group -->
+</div><!-- /.col-lg-6 -->
+{%endblock%}

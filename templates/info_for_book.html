@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{%block content%}
+
+<style>
+  .container {
+    text-align: center;
+    float: none;
+  }
+</style>
+
+<br>
+
+<!-- 书封页start -->
+<div>当前位置： <a href="/"> 首页 </a>> <a href="/category/18.html">悬疑类 </a> >月弓剑影</div>
+<br>
+<hr style="filter: alpha(opacity=100,finishopacity=0,style=1)" width="fa-rotate-100%" color='#987cb9' size=3>
+<!-- 书籍详细信息 -->
+<br>
+<div>{{form_chapter_rows}}</div>
+<div>{{form_book_rows}}</div>
+
+{%for row in form_book_rows%}
+<div class="container">
+  {%if not row.book_img_url == "-1" %}
+  <img class="img-thumbnail" src={{row.book_img_url}} alt="图床炸了">
+  {%endif%}
+  <p class="text-center">
+    <h2><b>{{row.book_name}}</b><br><small>作者id: {{row.user_id}}</small></h2>
+  </p>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 offset-lg-1">
+      <div class="contact-box ">
+        <p class=text-center">
+          <div class="text-center" style="font-size:20px">
+            <span class="badge badge-primary">已完结</span>
+            <span class="badge badge-success">最近更新{{row.updatetime}}</span>
+            <span class="badge badge-danger">书本id:{{row.book_id}}</span>
+          </div>
+          <br>
+
+          <p class="text-center" style="font-size:20px">字数 {{row.book_word_count}} 总热度 {{row.book_hot_rate}}</p>
+
+
+          <p class="text-center" style="font-size:30px">故事梗概</p>
+          <p class="text-center">
+            {{row.book_introduction}}
+          </p>
+      </div>
+    </div>
+  </div>
+</div>
+{%endfor%}
+
+<div class="container">
+  {% for row in form_chapter_rows%}
+  <div class="col mb-4">
+    <div class="card h-100">
+      {%if not row.chapter_img_url == "-1" %}
+      <img src={{row.chapter_img_url}} class="card-img-top" alt="...">
+      {%endif%}
+      <div class="card-body">
+        <h5 class="card-title">{{row.chapter_name}}</h5>
+        <p class="card-text">{{row.chapter_introduction}}</p>
+        <p class="card-text">{{row.updatetime}}</p>
+        <p class="card-text">{{row.createtime}}</p>
+        <p class="card-text">{{row.is_delete}}</p>
+        <p class="card-text">{{row.chapter_id}}</p>
+        <p class="card-text">{{row.chapter_introduction}}</p>
+        <a href='/Content/{{row.chapter_id}}' class="btn btn-primary btn-lg active" role="button"
+          aria-pressed="true">给我章节内容！麻溜的！</a>
+      </div>
+    </div>
+  </div>
+  {%endfor%}
+</div>
+
+{%endblock%}

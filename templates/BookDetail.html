@@ -12,18 +12,18 @@
     {% for row in all_rows%}
     <div class="col mb-4">
         <div class="card h-100">
-            {%if not row.book_img_url == "-1" %}
-            <img src={{row.book_img_url}} class="card-img-top" alt="...">
+            {%if not row.chapter_img_url == "-1" %}
+            <img src={{row.chapter_img_url}} class="card-img-top" alt="...">
             {%endif%}
             <div class="card-body">
-                <h5 class="card-title">{{row.book_name}}</h5>
-                <p class="card-text">{{row.book_introduction}}</p>
+                <h5 class="card-title">{{row.chapter_name}}</h5>
+                <p class="card-text">{{row.chapter_introduction}}</p>
                 <p class="card-text">{{row.updatetime}}</p>
                 <p class="card-text">{{row.createtime}}</p>
                 <p class="card-text">{{row.is_delete}}</p>
-                <p class="card-text">{{row.book_id}}</p>
-                <p class="card-text">{{row.book_img_url}}</p>
-                <p class="card-text">{{row.book_introduction}}</p>
+                <p class="card-text">{{row.chapter_id}}</p>
+                <p class="card-text">{{row.chapter_img_url}}</p>
+                <p class="card-text">{{row.chapter_introduction}}</p>
                 <a href='/Content/{{row.chapter_id}}' class="btn btn-primary btn-lg active" role="button"
                     aria-pressed="true">给我章节内容！麻溜的！</a>
             </div>

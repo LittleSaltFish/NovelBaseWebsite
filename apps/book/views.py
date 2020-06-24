@@ -33,13 +33,20 @@ class BookDetailView(View):
         except Book.DoesNotExist:
             # BUG 这边抓不住异常，但是可跳过去
             return redirect(reverse('home'))
-        cursor = connection.cursor()
         # 获取书籍信息
         # TODO 后期尝试不用raw写
-        cursor.execute("select * from chapter where book_id_id="+str(book.book_id))
-        rows = cursor.fetchall()
-        form_rows=get_chapter(rows)
-        return render(request, 'BookDetail.html', {"all_rows": form_rows})
+        cursor1 = connection.cursor()
+        cursor1.execute("select * from chapter where book_id_id="+str(book.book_id))
+        chapter_rows = cursor1.fetchall()
+        form_chapter_rows=get_chapter(chapter_rows)
+        
+        cursor2 = connection.cursor()
+        cursor2.execute("select * from book where book_id = "+str(book.book_id))
+        book_rows= cursor2.fetchall()
+        form_book_rows=get_book(book_rows)
+        
+        
+        return render(request, 'info_for_book.html', {"form_chapter_rows": form_chapter_rows, "form_book_rows": form_book_rows})
 
 
 def home(request):
@@ -48,7 +55,7 @@ def home(request):
     cursor.execute("select * from book")
     rows = cursor.fetchall()
     form_rows = get_book(rows)
-    return render(request, 'FrontPage.html', {"all_rows": form_rows})
+    return render(request, 'theFrontPage.html', {"all_rows": form_rows})
 
 
 def SearchResult(request):

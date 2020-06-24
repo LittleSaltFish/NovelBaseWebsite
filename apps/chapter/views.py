@@ -41,7 +41,7 @@ class ChapterDetailView(View):
                        str(chapter.chapter_id))
         rows = cursor.fetchall()
         form_rows = get_chapter(rows)
-        return render(request, 'Content.html', {"all_rows": form_rows})
+        return render(request, 'ChapterContent.html', {"all_rows": form_rows})
 
 
 def SearchResult(request):
