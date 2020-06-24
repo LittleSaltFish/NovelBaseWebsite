@@ -25,11 +25,12 @@
 
     <audio id="music1" src="{% static 'music1.mp3' %}"></audio>
     <audio id="music2" src="{% static 'music2.mp3' %}"></audio>
+    <audio id="music3" src="{% static 'music3.mp3' %}"></audio>
     <div style="z-index:999;display: block; position: fixed; left: 50px; top: 800px;">
       <div class="content">
-        <div id="times"></div>
-        <img data-toggle="popover" title="弹出框标题" data-content="弹出框内容" src="{% static '2233.gif' %}"
-          class="rounded-circle" onClick="play()">
+        <!-- <div id="times"></div> -->
+        <img id="girl" data-toggle="popover" data-trigger="hover" src="{% static '2233.gif' %}" class="rounded-circle"
+          onClick="play()">
       </div>
     </div>
 
@@ -113,37 +114,81 @@
   </script>
   <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+  <!-- <script src="https://j11y.io/demos/grayscale/grayscale.js"></script> -->
+  <!--灰色滤镜 -->
+
   <!-- NOTE 这里一定要注意script的导入顺序，不然下拉框出不来 -->
 
   <script>
-    $(document).ready(function () {
-      $('[data-toggle="popover"]').popover();
+    // $(document).ready(function () {
+    //   $('[data-toggle="popover"]').popover();
+    // });
+    $(function () {
+      $('#girl').popover({
+        // $("[data-toggle='popover']").popover({
+        html: true,
+        title: title(),
+        delay: {
+          show: 500,
+          hide: 1000
+        },
+        content: function () {
+          return content();
+        }
+      });
     });
+
+    function title() {
+      date = new Date();
+      hour = date.getHours();
+      minute = date.getMinutes();
+      if (hour < 12) {
+        return '<b>死宅</b>早上好啊';
+      } else {
+        return '<b>死宅</b>下午好啊'
+      }
+    }
+
+    function content() {
+      date = new Date();
+      d1 = date.toLocaleString();
+      return d1;
+    }
   </script>
   <!-- NOTE 负责弹框的函数 -->
 
-  <script type="text/javascript">
-    function getD1() {
-      var date = new Date();
-      var d1 = date.toLocaleString();
-      var div1 = document.getElementById("times");
-      div1.innerHTML = d1;
-    }
-    setInterval("getD1();", 1000);
-  </script>
-
   <script>
+    var click = 0;
+
     function play() {
-      if (Math.random() > 0.5) {
-        var audio = document.getElementById('music1');
+      click = click + 1;
+
+      if (click < 2) {
+        if (Math.random() > 0.6) {
+          audio = document.getElementById('music1');
+        } else if (Math.random() < 0.3) {
+          audio = document.getElementById('music2');
+        } else {
+          audio = document.getElementById('music3');
+        }
+        if (audio.paused) {
+          audio.play();
+        } else {
+          audio.pause();
+          audio.currentTime = 0; //音乐从头播放
+        }
+      } else if (click > 4) {
+        // m.style.visibility="visiable";
+        // grayscale.reset($("body"));
+        m.style.opacity = 1;
       } else {
-        var audio = document.getElementById('music2');
-      }
-      if (audio.paused) {
-        audio.play();
-      } else {
-        audio.pause();
-        audio.currentTime = 0; //音乐从头播放
+        m = document.getElementById("girl");
+        // $('#girl').popover('hide');
+        // m.parentNode.removeChild(m);
+        // m.style.display="none";
+        // m.style.visibility="hidden";
+        m.style.opacity = 0.01;
+        // grayscale($("body"));
       }
     }
   </script>
