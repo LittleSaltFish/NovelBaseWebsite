@@ -43,7 +43,7 @@
 
 - [x] 搜索功能 @LittleSaltFish
 - [x] 网页间跳转 @LittleSaltFish
-- [ ] 弹出框操作
+- [x] 弹出框操作 @LittleSaltFish
 - [ ] 登录相关
 - [x] 搜索防空跳转 @LittleSaltFish
 - [ ] 防sql注入 <!-- NOTE 可以尝试更改结束符防注入/设计权限防止操作 -->
@@ -56,6 +56,13 @@
 - [ ] 评论区预加载技术（强制要求文末按按钮打开评论）
 - [x] 用户系统-超级管理员 @LittleSaltFish
 - [ ] 用户系统-普通用户
+- [x] 吉祥物挂件 @LittleSaltFish
+- [x] 分享系统 @吴漾
+- [ ] 算法推荐
+- [x] 图片系统 @LittleSaltFish
+- [x] 字体插件 @LittleSaltFish
+- [ ] 高级搜索
+- [ ] 打赏系统
 
 ## ABOUT
 
@@ -172,30 +179,30 @@
 
 (each book has a table , name as bookid)
 
-|        Field         |   Type    | Null  |  Key  | Default |     Extra      |
-| :------------------: | :-------: | :---: | :---: | :-----: | :------------: |
-|       book_id        |  int(8)   |       |  PRI  |         | auto_increment |
-|     book_img_url     | char(50)  |       |       |  <-1>   |                |
-|  book_introduction   | char(500) |       |       |         |                |
-|    book_hot_rate     |  int(10)  |       |       |         |                |
-|      book_name       | char(50)  |       |       |         |                |
-|       user_id        |  int(8)   |       |       |  <-1>   |                |
-|   book_word_count    |  int(10)  |       |       |         |                |
+|       Field       |   Type    | Null  |  Key  | Default |     Extra      |
+| :---------------: | :-------: | :---: | :---: | :-----: | :------------: |
+|      book_id      |  int(8)   |       |  PRI  |         | auto_increment |
+|   book_img_url    | char(50)  |       |       |  <-1>   |                |
+| book_introduction | char(500) |       |       |         |                |
+|   book_hot_rate   |  int(10)  |       |       |         |                |
+|     book_name     | char(50)  |       |       |         |                |
+|      user_id      |  int(8)   |       |       |  <-1>   |                |
+|  book_word_count  |  int(10)  |       |       |         |                |
 
 #### ~~novel~~chapter
 
 (link book's detail with chapters)
 
-|        Field         |   Type    | Null  |  Key  | Default |     Extra      |
-| :------------------: | :-------: | :---: | :---: | :-----: | :------------: |
-|      chapter_id      |  int(8)   |       |  PRI  |         | auto_increment |
-|       book_id        |  int(8)   |       |       |         |                |
-|   chapter_img_url    | char(50)  |       |       |  <-1>   |                |
-| chapter_introduction | char(500) |       |       |         |                |
-|   chapter_hot_rate   |  int(10)  |       |       |         |                |
-|     chapter_name     | char(50)  |       |       |         |                |
-|  chapter_word_count  |  int(10)  |       |       |         |                |
-|  content  |  char(5000)  |       |       |         |                |
+|        Field         |    Type    | Null  |  Key  | Default |     Extra      |
+| :------------------: | :--------: | :---: | :---: | :-----: | :------------: |
+|      chapter_id      |   int(8)   |       |  PRI  |         | auto_increment |
+|       book_id        |   int(8)   |       |       |         |                |
+|   chapter_img_url    |  char(50)  |       |       |  <-1>   |                |
+| chapter_introduction | char(500)  |       |       |         |                |
+|   chapter_hot_rate   |  int(10)   |       |       |         |                |
+|     chapter_name     |  char(50)  |       |       |         |                |
+|  chapter_word_count  |  int(10)   |       |       |         |                |
+|       content        | char(5000) |       |       |         |                |
 
 #### chapter_comment
 
@@ -222,7 +229,7 @@
 |   Field    |  Type  | Null  |  Key  | Default | Extra |
 | :--------: | :----: | :---: | :---: | :-----: | :---: |
 |   tag_id   | int(8) |       |  PRI  |         |       |
-|   book_id   | int(8) |       |       |         |       |
+|  book_id   | int(8) |       |       |         |       |
 | chapter_id | int(8) |       |       |         |       |
 
 #### tag_massage
