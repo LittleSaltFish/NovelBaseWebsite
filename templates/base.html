@@ -120,6 +120,7 @@
   <!-- NOTE 这里一定要注意script的导入顺序，不然下拉框出不来 -->
 
   <script>
+    var click = 0;
     // $(document).ready(function () {
     //   $('[data-toggle="popover"]').popover();
     // });
@@ -150,6 +151,9 @@
     }
 
     function content() {
+      if (click > 1 && click<5) {
+        return '...';
+      }
       date = new Date();
       d1 = date.toLocaleString();
       return d1;
@@ -158,8 +162,6 @@
   <!-- NOTE 负责弹框的函数 -->
 
   <script>
-    var click = 0;
-
     function play() {
       click = click + 1;
 
