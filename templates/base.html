@@ -132,8 +132,9 @@
   <script>
     tinymce.init({
       selector: 'textarea#comment',
-      // 选择器，id为comment的应用此格式
+      // 选择器,id为comment时应用此格式
       theme: 'silver',
+      plugins: "advlist,autolink,lists,link,image,charmap,print,preview,anchor,visualblocks,code,fullscreen,insertdatetime,media,table,paste,bbcode,help,wordcount,toc,link,autosave",
       language: 'zh_CN',
       width: 1000,
       height: 500

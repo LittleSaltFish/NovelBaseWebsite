@@ -127,8 +127,8 @@ STATICFILES_DIRS = (
 
 # 富文本编辑器配置
 TINYMCE_DEFAULT_CONFIG = {
-    #  'theme':'advanced',
+    'theme':'silver',
     # NOTE advanced主题会出现404无法加载的情况
     'width': 600,
-    'height': 1200,
+    'height': 800,
 }
