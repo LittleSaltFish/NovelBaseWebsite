@@ -18,9 +18,9 @@
   </script>
   <div style="text-align:center">
     <div class="card">
-    <p class=text-center">
-      {{row.text|safe}}
-    </p>
+      <p class=text-center">
+        {{row.text|safe}}
+      </p>
     </div>
   </div>
 </div>
@@ -66,11 +66,15 @@
 </ul>
 <!---写评论------>
 <div style="text-align:center">
-  <div class="input-group">
-    <input type="text" class="form-control" placeholder="text...">
-    <span class="input-group-btn">
-      <button class="btn btn-light" type="button">评论</button>
-    </span>
-  </div><!-- /input-group -->
-</div><!-- /.col-lg-6 -->
-{%endblock%}
+  <label>
+    <textarea id="comment" name="comment_content">富文本</textarea>
+  </label>
+  <br>
+  <span class="input-group-btn">
+    <label class="btn btn-danger">
+      <input type="checkbox" autocomplete="off"> 匿名
+    </label>
+    <label class="btn btn-success" type="button"> 评论 </label>
+  </span>
+</div>
+{% endblock %}

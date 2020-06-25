@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="zh-CN">
+{%load static%}
 
 <head>
   <!-- Required meta tags -->
@@ -10,11 +11,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <title>NovelWebsite!</title>
+
+
 </head>
 
 
 <body>
-  {%load static%}
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#e3f2fd">
     <a class="navbar-brand" href="{%url 'home'%}">Novel Website</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -100,15 +102,15 @@
   <!-- 此处插入网页内容 -->
   {%endblock%}
 
-    <footer class="text-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <p>Copyright © 咸鱼项目组. All rights reserved.</p>
-          </div>
+  <footer class="text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <p>Copyright © 咸鱼项目组. All rights reserved.</p>
         </div>
       </div>
-    </footer>
+    </div>
+  </footer>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -126,6 +128,18 @@
   <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
   <!-- <script src="https://j11y.io/demos/grayscale/grayscale.js"></script> -->
   <!--灰色滤镜 -->
+  <script src="{% static 'tinymce/tinymce.min.js' %}"></script>
+  <script>
+    tinymce.init({
+      selector: 'textarea#comment',
+      // 选择器，id为comment的应用此格式
+      theme: 'silver',
+      language: 'zh_CN',
+      width: 1000,
+      height: 500
+    });
+  </script>
+  <!-- 前台tinymce -->
 
   <!-- NOTE 这里一定要注意script的导入顺序，不然下拉框出不来 -->
 
