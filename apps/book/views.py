@@ -3,12 +3,38 @@ from django.urls import reverse
 from django.db import connection
 from django.views.generic import View
 from book.models import Book
-from chapter.views import get_chapter
+from chapter.views import format_chapter, get_chapter_by_chapter_id
 
 # Create your views here.
 
 
-def get_book(rows):
+def get_all_chapters_by_book_id(id):
+    cursor = connection.cursor()
+    cursor.execute(
+        "select * from chapter where book_id_id="+str(id))
+    chapter_rows = cursor.fetchall()
+    format_chapter_rows = format_chapter(chapter_rows)
+    return format_chapter_rows
+
+
+def get_book_by_book_id(id):
+    cursor = connection.cursor()
+    cursor.execute(
+        "select * from book where book_id = "+str(id))
+    book_rows = cursor.fetchall()
+    format_book_rows = format_book(book_rows)
+    return format_book_rows
+
+
+def get_all_books():
+    cursor = connection.cursor()
+    cursor.execute("select * from book")
+    rows = cursor.fetchall()
+    format_all_book_rows = format_book(rows)
+    return format_all_book_rows
+
+
+def format_book(rows):
     form_rows = []
     for row in rows:
         rows_dic = {'createtime': row[0],
@@ -35,36 +61,31 @@ class BookDetailView(View):
             return redirect(reverse('home'))
         # 获取书籍信息
         # TODO 后期尝试不用raw写
-        cursor1 = connection.cursor()
-        cursor1.execute("select * from chapter where book_id_id="+str(book.book_id))
-        chapter_rows = cursor1.fetchall()
-        form_chapter_rows=get_chapter(chapter_rows)
-        
-        cursor2 = connection.cursor()
-        cursor2.execute("select * from book where book_id = "+str(book.book_id))
-        book_rows= cursor2.fetchall()
-        form_book_rows=get_book(book_rows)
-        
-        
-        return render(request, 'info_for_book.html', {"form_chapter_rows": form_chapter_rows, "form_book_rows": form_book_rows})
+        format_chapter_rows = get_all_chapters_by_book_id(book.book_id)
+        # 获取对应章节信息
+        # TODO 后期尝试不用raw写
+        format_book_rows = get_book_by_book_id(book.book_id)
+
+        return render(request, 'info_for_book.html', {"form_chapter_rows": format_chapter_rows, "form_book_rows": format_book_rows})
 
 
 def home(request):
-    cursor = connection.cursor()
-    # cursor.execute('insert into novels(img_url) values("testinsert2")')
-    cursor.execute("select * from book")
-    rows = cursor.fetchall()
-    form_rows = get_book(rows)
-    return render(request, 'theFrontPage.html', {"all_rows": form_rows})
+    # cursor = connection.cursor()
+    # cursor.execute("select * from book")
+    # rows = cursor.fetchall()
+    # form_rows = format_book(rows)
+    format_all_book_rows = get_all_books()
+    return render(request, 'theFrontPage.html', {"all_rows": format_all_book_rows})
 
 
 def SearchResult(request):
     SearchInput = request.POST['SearchInput']
     print("获取输入值为"+SearchInput)
-    cursor = connection.cursor()
-    # cursor.execute('insert into novels(img_url) values("testinsert2")')
-    cursor.execute("select * from book where book_id = "+str(SearchInput))
-    # TODO 此处应防范SQL注入，后期添加限制项
-    SearchResults = cursor.fetchall()
-    form_rows = get_book(SearchResults)
-    return render(request, 'SearchResult.html', {"search_rows": form_rows})
+    # cursor = connection.cursor()
+    # cursor.execute("select * from book where book_id = "+str(SearchInput))
+    # # TODO 此处应防范SQL注入，后期添加限制项
+    # SearchResults = cursor.fetchall()
+    # form_rows = format_book(SearchResults)
+    format_book_rows = get_book_by_book_id(SearchInput)
+    format_chapter_rows=get_chapter_by_chapter_id(SearchInput)
+    return render(request, 'SearchResult.html', {"search_book_rows": format_book_rows,"search_chapter_rows":format_chapter_rows})

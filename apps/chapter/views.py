@@ -7,7 +7,15 @@ from chapter.models import Chapter
 # Create your views here.
 
 
-def get_chapter(rows):
+def get_chapter_by_chapter_id(id):
+    cursor = connection.cursor()
+    cursor.execute("select * from chapter where chapter_id=" + str(id))
+    rows = cursor.fetchall()
+    format_chapter_rows = format_chapter(rows)
+    return format_chapter_rows
+
+
+def format_chapter(rows):
     form_rows = []
     for row in rows:
         rows_dic = {'create_time': row[0],
@@ -34,26 +42,27 @@ class ChapterDetailView(View):
         except Chapter.DoesNotExist:
             # BUG 这边抓不住异常，但是可跳过去
             return redirect(reverse('home'))
-        cursor = connection.cursor()
         # 获取书籍信息
         # TODO 后期尝试不用raw写
-        cursor.execute("select * from chapter where chapter_id=" +
-                       str(chapter.chapter_id))
-        rows = cursor.fetchall()
-        form_rows = get_chapter(rows)
-        return render(request, 'ChapterContent.html', {"all_rows": form_rows})
+        # cursor = connection.cursor()
+        # cursor.execute("select * from chapter where chapter_id=" +
+        #                str(chapter.chapter_id))
+        # rows = cursor.fetchall()
+        # form_rows = format_chapter(rows)
+        format_chapter_rows = get_chapter_by_chapter_id(chapter.chapter_id)
+        return render(request, 'ChapterContent.html', {"all_rows": format_chapter_rows})
 
 
 def SearchResult(request):
     SearchInput = request.POST['SearchInput']
     print("获取输入值为"+SearchInput)
-    cursor = connection.cursor()
-    # cursor.execute('insert into novels(img_url) values("testinsert2")')
-    cursor.execute("select * from chapter where chapter_id ="+str(SearchInput))
-    # TODO 此处应防范SQL注入，后期添加限制项
-    SearchResults = cursor.fetchall()
-    form_rows = get_chapter(SearchResults)
-    return render(request, 'SearchResult.html', {"search_rows": form_rows})
+    # # TODO 此处应防范SQL注入，后期添加限制项
+    # cursor = connection.cursor()
+    # cursor.execute("select * from chapter where chapter_id ="+str(SearchInput))
+    # SearchResults = cursor.fetchall()
+    # form_rows = format_chapter(SearchResults)
+    format_chapter_rows = get_chapter_by_chapter_id(SearchInput)
+    return render(request, 'SearchResult.html', {"search_rows": format_chapter_rows})
 
 
 # def contentresult(request):

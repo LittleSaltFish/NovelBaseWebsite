@@ -4,9 +4,9 @@
 <div class="container">
   <br />
   <h1>搜索</h1><!-- TEMPCODE -->
-  <div>{{search_rows}}</div>
-  {%if search_rows%}
-  {% for row in search_rows%}
+  <div>{{search_book_rows}}</div>
+  {%if search_book_rows%}
+  {% for row in search_book_rows%}
   <div>
     <h1>{{row.chapter_id}}</h1><!-- TEMPCODE -->
   </div>
@@ -29,8 +29,41 @@
   {%endfor%}
   {%else%}
   <div>
-    <h1>404 NOT FOUND</h1>
+    <h1>404 NOT FOUND IN BOOK</h1>
   </div>
   {%endif%}
+
+<HR style=" FILTER: alpha (opacity = 100, finishopacity =0 , style= 2 )" width="80%" color=#987 cb 9 SIZE=10>
+
+  {%if search_chapter_rows%}
+  {% for row in search_chapter_rows%}
+  <div class="col mb-4">
+    <div class="card h-100">
+      {%if not row.chapter_img_url == "-1" %}
+      <img src={{row.chapter_img_url}} class="card-img-top" alt="...">
+      {%endif%}
+      <div class="card-body">
+        <h5 class="card-title">{{row.chapter_name}}</h5>
+        <p class="card-text">{{row.chapter_introduction}}</p>
+        <p class="card-text">{{row.updatetime}}</p>
+        <p class="card-text">{{row.createtime}}</p>
+        <p class="card-text">{{row.is_delete}}</p>
+        <p class="card-text">{{row.chapter_id}}</p>
+        <p class="card-text">{{row.chapter_img_url}}</p>
+        <p class="card-text">{{row.chapter_introduction}}</p>
+        <a href='/Content/{{row.chapter_id}}' class="btn btn-primary btn-lg active" role="button"
+          aria-pressed="true">给我章节内容！麻溜的！</a>
+      </div>
+    </div>
+  </div>
+  {%endfor%}
+  {%else%}
+  <div>
+    <h1>404 NOT FOUND IN CHAPTER</h1>
+  </div>
+  {%endif%}
+
+
+
 </div>
 {%endblock%}
