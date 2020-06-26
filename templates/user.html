@@ -1,0 +1,250 @@
+{% extends 'base.html' %}
+
+{%block content%}
+{%load static%}
+
+
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+
+<!--内容-->
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="container">
+
+                <div class="row mt-2">
+                    <div class="col-md-12 bgc">
+                        <div class="new">
+                            <span><i class="el el-info-circle"></i>个人信息</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12 bgc">
+                        <div class="new">
+                            <span><i class="el el-list-alt"></i>个人签名</span>
+                        </div>
+                    </div>
+                    <div class="about-content bgc">
+                        <p>个人签名：前端超级小白，求大佬教教我怎么熟练使用bootstrap。小垃圾一个求轻喷！！！！！！！</p>
+                    </div>
+                </div>
+
+
+
+                <div class="row mt-2">
+                    <div class="col-md-12 bgc">
+                        <div class="new">
+                            <span><i class="el-certificate"></i>收藏列表</span>
+                            <small>Favorites List</small>
+                        </div>
+                    </div>
+
+                    <div class="container mt-4">
+                        <div class="row">
+                            <div class="col-md-4 bgc mb-4 ">
+                                <div class="card mb-4 box-shadow  mt-4">
+                                    <div class="showimg">
+                                        <img class="card-img-top" style=" width: 100%; display: block;"
+                                            src="{% static 'images/11.jpg' %}" data-holder-rendered="true">
+                                    </div>
+
+                                    <div class="card-body">
+                                        <a href="#">《我是你爸爸》</a>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="btn-group showtitle">
+                                                <i class="el-time"></i>2019-04-03
+                                            </div>
+                                            <small class="text-muted"><i class="el-fire"></i>9 mins</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 bgc mb-4">
+                                <div class="card mb-4 box-shadow mt-4">
+                                    <div class="showimg showtitle">
+                                        <img class="card-img-top" style=" width: 100%; display: block;"
+                                            src="{% static 'images/11.jpg' %}" data-holder-rendered="true">
+                                    </div>
+                                    <div class="card-body">
+                                        <a href="#">《霸道总裁爱自己》</a>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="btn-group showtitle">
+                                                <i class="el-time"></i>2019-04-03
+                                            </div>
+                                            <small class="text-muted">9 mins</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 bgc mb-4">
+                                <div class="card  box-shadow mt-4">
+                                    <div class="showimg">
+                                        <img class="card-img-top" style=" width: 100%; display: block;"
+                                            src="{% static 'images/11.jpg' %}" data-holder-rendered="true">
+                                    </div>
+                                    <div class="card-body">
+                                        <a href="#">《我真的太难了！》</a>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="btn-group showtitle">
+                                                <i class="el-time"></i>2019-04-03
+                                            </div>
+                                            <small class="text-muted">9 mins</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <!--右边-->
+        <div class="col-md-4">
+            <div class="container">
+
+
+                <div class="row bgc mt-5 right-author">
+                    <div class="col-md-12 ">
+                        <div class="auth-img">
+                            <img src="{% static 'images/logo.png' %}" alt="">
+                        </div>
+                        <div class="auth-name">
+                            <span>你喊辣么大声干嘛！</span>
+                            <p>一个小白开发</p>
+                        </div>
+                        <div class="auth-info">
+                            <ul>
+                                <li><strong>2</strong><span>粉丝数</span></li>
+                                <li><strong>2</strong><span>关注</span></li>
+                                <li><strong>2</strong><span>收藏量</span></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="row bgc mt-4">
+                    <div class="new new-right">
+                        <span>通知信息</span>
+                        <small>News</small>
+                    </div>
+                    <div class="col-md-12 ">
+                        <div class="notice">
+                            <ul>
+                                <li><a href="">哎呀！又出新小说啦！</a></li>
+                                <li><a href="">哎呀！又又出新小说啦！</a></li>
+                                <li><a href="">哎呀！又又又出新小说啦！</a></li>
+                                <li><a href="">哎呀！又又又又出新小说啦！</a></li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row bgc mt-5">
+                    <div class="new new-right">
+                        <span><i class="el-tags"></i>标签云</span>
+                        <small>New Article</small>
+                    </div>
+                    <div class="col-md-12 ">
+                        <ul class="label">
+                            <li>
+                                <a href="#" title="生活">生活&nbsp;&nbsp;(1)</a>
+
+                            </li>
+
+                            <li>
+                                <a href="#" title="玄幻">玄幻&nbsp;&nbsp;(1)</a>
+
+                            </li>
+
+                            <li>
+                                <a href="#" title="奇幻">奇幻&nbsp;&nbsp;(1)</a>
+
+                            </li>
+
+                            <li>
+                                <a href="#" title="武侠">武侠&nbsp;&nbsp;(2)</a>
+
+                            </li>
+
+                            <li>
+                                <a href="#" title="仙侠">仙侠&nbsp;&nbsp;(1)</a>
+
+                            </li>
+
+                            <li>
+                                <a href="#" title="都市">都市&nbsp;&nbsp;(1)</a>
+
+                            </li>
+
+                            <li>
+                                <a href="#" title="现实">现实&nbsp;&nbsp;(1)</a>
+
+                            </li>
+
+                            <li>
+                                <a href="#" title="军事">军事&nbsp;&nbsp;(1)</a>
+
+                            </li>
+
+                            <li>
+                                <a href="#" title="历史">历史&nbsp;&nbsp;(1)</a>
+
+                            </li>
+
+                            <li>
+                                <a href="#" title="游戏">游戏&nbsp;&nbsp;(2)</a>
+
+                            </li>
+
+                            <li>
+                                <a href="#" title="体育">体育&nbsp;&nbsp;(1)</a>
+
+                            </li>
+
+                            <li>
+                                <a href="#" title="科幻">科幻&nbsp;&nbsp;(1)</a>
+
+                            </li>
+
+                            <li>
+                                <a href="#" title="悬疑">悬疑&nbsp;&nbsp;(1)</a>
+
+                            </li>
+
+                            <li>
+                                <a href="#" title="轻小说">轻小说&nbsp;&nbsp;(1)</a>
+
+                            </li>
+
+                            <li>
+                                <a href="#" title="你喊这么大声干嘛！">你喊这么大声干嘛！&nbsp;&nbsp;(1)</a>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+{%endblock%}

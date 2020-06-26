@@ -82,6 +82,11 @@ class SignInView(View):
         else:
             return render(request, 'SignUp.html', {'errmsg': '用户名or密码错误'})
 
+class UserMainPage(View):
+    '''用户主页'''
+    def get(self,request):
+        return render(request,'user.html')
+
 
 class SignUpView(View):
     '''显示登录界面'''
