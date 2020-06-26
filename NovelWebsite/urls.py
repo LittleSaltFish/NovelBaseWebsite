@@ -4,7 +4,7 @@ from django.conf.urls import url
 from book.views import SearchResult, home
 
 urlpatterns = [
-    path('Search/', SearchResult, name="Search"),
+    # path('Search/', SearchResult, name="Search"),
     # url(r'^tinymce/',include('tinymce.urls'))#富文本url
     path('admin/', admin.site.urls),  # 管理url
     path('user/', include('user.urls')),  # 用户url
