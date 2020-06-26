@@ -35,7 +35,7 @@ def format_chapter(rows):
 
 
 class ChapterDetailView(View):
-    def get(self, request, chapter_id):
+    def get(self, request,book_id_id, chapter_id):
         try:
             # 查是否有这本书，没有则返回首页
             chapter = Chapter.objects.get(chapter_id=chapter_id)

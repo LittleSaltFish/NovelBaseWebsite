@@ -4,6 +4,6 @@ from django.conf.urls import url
 
 urlpatterns = [
     # url(r'^Search/(?P<SearchInput>\d+)', SearchResult, name="Search"),
-    path('Search/', SearchResult, name="Search"),
-    path('BookDetail/<str:book_id>/', BookDetailView.as_view(),name='BookDetail')
+    # path('Search/', SearchResult, name="Search"),
+    path('<str:book_id>/', BookDetailView.as_view(),name='BookDetail')
 ]
