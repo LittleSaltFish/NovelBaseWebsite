@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'chapter',  # NOTE 主页 待改成chapter
+    'chapter',  # 章节
     'star',  # 收藏
     'user',  # 用户
     'book',  # 书籍

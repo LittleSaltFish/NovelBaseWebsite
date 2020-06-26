@@ -54,26 +54,26 @@
             out</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="{%url 'UserMainPage' %}" aria-disabled="true">UserMainPage</a>
+          <a class="nav-link" href="{% url 'user:UserMainPage' user.username %}" aria-disabled="true">UserMainPage</a>
         </li>
         {% else %}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">Account</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{% url 'SignUp' %}">Sign Up</a>
-            <a class="dropdown-item" href="{% url 'SignIn' %}">Sign In</a>
+            <a class="dropdown-item" href="{% url 'user:SignUp' %}">Sign Up</a>
+            <a class="dropdown-item" href="{% url 'user:SignIn' %}">Sign In</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a>
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'SignUp' %}" aria-disabled="true">Sign in to open up a
+          <a class="nav-link" href="{% url 'user:SignUp' %}" aria-disabled="true">Sign in to open up a
             brand new world!</a>
         </li>
         {% endif %}
       </ul>
-      <form class="form-inline my-2 my-lg-0" method="POST" action="{% url 'Search'%}">
+      <form class="form-inline my-2 my-lg-0" method="POST" action="{% url 'book:Search'%}">
         {% csrf_token %}
         <input class="form-control mr-sm-2" name="SearchInput" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -91,7 +91,7 @@
           </button>
         </div>
         <div class="modal-footer">
-          <a id="cancel" href="{%url 'LogOut'%}" class=" btn btn-danger" role="button">放劳资出去</a>
+          <a id="cancel" href="{%url 'user:LogOut'%}" class=" btn btn-danger" role="button">放劳资出去</a>
           <button type="button" class="btn btn-primary" data-dismiss="modal">再看会</button>
         </div>
       </div>

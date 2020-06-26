@@ -84,7 +84,7 @@ class SignInView(View):
 
 class UserMainPage(View):
     '''用户主页'''
-    def get(self,request):
+    def get(self,request,username):
         return render(request,'user.html')
 
 
