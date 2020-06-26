@@ -25,7 +25,7 @@ class Chapter(BaseModel):
                                 verbose_name='作者姓名', default='-1', on_delete=models.SET_DEFAULT)
     chapter_word_count = models.IntegerField(
         verbose_name='字数统计')
-
+# TODO 章节在书中的位置
     class Meta:
         db_table = 'chapter'
         verbose_name='章节库'
