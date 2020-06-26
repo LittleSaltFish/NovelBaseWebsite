@@ -26,6 +26,8 @@
                 <p class="card-text">{{row.chapter_introduction}}</p>
                 <a href='/book/{{row.book_id_id}}/chapter/{{row.chapter_id}}' class="btn btn-primary btn-lg active" role="button"
                     aria-pressed="true">给我章节内容！麻溜的！</a>
+                <!-- <a href="{% url'chapter:ChapterContent' book_id_id=row.book_id_id chapter_id=row.chapter_id %}" class="btn btn-primary btn-lg active"
+                    role="button" aria-pressed="true">给我章节内容！麻溜的！</a> -->
             </div>
         </div>
     </div>
@@ -34,4 +36,3 @@
 
 
 {%endblock%}
-
