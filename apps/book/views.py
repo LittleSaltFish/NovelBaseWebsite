@@ -18,26 +18,48 @@ def get_all_chapters_by_book_id(id):
 
 
 def get_book_by_book_id(id):
-    cursor = connection.cursor()
+    # TODO 此处应防范SQL注入 
+    cursor=connection.cursor()
+    # id=id.replace("'","\'")
+    # id = "{}{}{}".format("%", id, "%")
+    # NOTE 此处不可模糊匹配，否则索引失效且无意义
+    # BUG 百分号被转义
+    # print(str(id))
+    # cursor.execute(
+    #     "select * from book where book_id = "+str(id))
     cursor.execute(
-        "select * from book where book_id = "+str(id))
-    book_rows = cursor.fetchall()
-    format_book_rows = format_book(book_rows)
+        "select * from book where book_id = %s ",[id]
+        )
+    book_rows=cursor.fetchall()
+    format_book_rows=format_book(book_rows)
+    return format_book_rows
+
+
+def get_book_by_book_name(name):
+    # TODO 此处应防范SQL注入
+    name = "{}{}{}".format("%%", name, "%%")
+    # BUG 百分号被转义，引号被转义，不可上线
+    cursor=connection.cursor()
+    cursor.execute(
+        "select * from book where book_name = %s ;",[name]
+        )
+    book_rows=cursor.fetchall()
+    format_book_rows=format_book(book_rows)
     return format_book_rows
 
 
 def get_all_books():
-    cursor = connection.cursor()
+    cursor=connection.cursor()
     cursor.execute("select * from book")
-    rows = cursor.fetchall()
-    format_all_book_rows = format_book(rows)
+    rows=cursor.fetchall()
+    format_all_book_rows=format_book(rows)
     return format_all_book_rows
 
 
 def format_book(rows):
-    form_rows = []
+    form_rows=[]
     for row in rows:
-        rows_dic = {'createtime': row[0],
+        rows_dic={'createtime': row[0],
                     'updatetime': row[1],
                     'is_delete': row[2],
                     'book_id': row[3],
@@ -57,7 +79,6 @@ class BookDetailView(View):
             # 查是否有这本书，没有则返回首页
             book = Book.objects.get(book_id=book_id)
         except Book.DoesNotExist:
-            # BUG 这边抓不住异常，但是可跳过去
             return redirect(reverse('home'))
         # 获取书籍信息
         # TODO 后期尝试不用raw写
@@ -83,9 +104,11 @@ def SearchResult(request):
     print("获取输入值为"+SearchInput)
     # cursor = connection.cursor()
     # cursor.execute("select * from book where book_id = "+str(SearchInput))
-    # # TODO 此处应防范SQL注入，后期添加限制项
     # SearchResults = cursor.fetchall()
     # form_rows = format_book(SearchResults)
-    format_book_rows = get_book_by_book_id(SearchInput)
-    format_chapter_rows=get_chapter_by_chapter_id(SearchInput)
-    return render(request, 'SearchResult.html', {"search_book_rows": format_book_rows,"search_chapter_rows":format_chapter_rows})
+    format_book_rows_id = get_book_by_book_id(SearchInput)
+    format_book_rows_name = get_book_by_book_name(SearchInput)
+    format_book_rows=format_book_rows_id+format_book_rows_name
+    # BUG 合并id和name的查询结果
+    format_chapter_rows_id = get_chapter_by_chapter_id(SearchInput)
+    return render(request, 'SearchResult.html', {"search_book_rows": format_book_rows, "search_chapter_rows": format_chapter_rows_id})

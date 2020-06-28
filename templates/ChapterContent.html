@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {%block content%}
+<div>{{all_rows}}</div>
 {% for row in all_rows%}
 <div class="page-header text-center">
   <h1><small>{{row.chapter_name}}</small></h1>

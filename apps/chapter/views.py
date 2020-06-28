@@ -18,11 +18,14 @@ def get_chapter_by_chapter_id(id):
 def format_chapter(rows):
     form_rows = []
     for row in rows:
+        content=row[4].replace("script","sc ri pt")
+        # NOTE 防xss攻击
         rows_dic = {'create_time': row[0],
                     'update_time': row[1],
                     'is_delete': row[2],
                     'chapter_id': row[3],
-                    'text': row[4],
+                    # 'text': row[4],
+                    'text':content,
                     'chapter_img_url': row[5],
                     'chapter_introduction': row[6],
                     'chapter_hot_rate': row[7],

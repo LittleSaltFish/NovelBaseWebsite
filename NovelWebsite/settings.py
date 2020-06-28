@@ -131,4 +131,5 @@ TINYMCE_DEFAULT_CONFIG = {
     # NOTE advanced主题会出现404无法加载的情况
     'width': 600,
     'height': 800,
+    'plugins': "advlist,autolink,lists,link,image,charmap,print,preview,anchor,visualblocks,code,fullscreen,insertdatetime,media,table,paste,bbcode,help,wordcount,toc,link,autosave",
 }
