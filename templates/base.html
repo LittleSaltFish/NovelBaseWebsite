@@ -179,7 +179,7 @@
     }
 
     function content() {
-      if (click > 1 && click < 5) {
+      if (click >= 20 && click <= 40) {
         return '...';
       }
       date = new Date();
@@ -193,7 +193,7 @@
     function play() {
       click = click + 1;
 
-      if (click < 2) {
+      if (click < 20) {
         if (Math.random() > 0.6) {
           audio = document.getElementById('music1');
         } else if (Math.random() < 0.3) {
@@ -207,7 +207,7 @@
           audio.pause();
           audio.currentTime = 0; //音乐从头播放
         }
-      } else if (click > 4) {
+      } else if (click > 40) {
         // m.style.visibility="visiable";
         // grayscale.reset($("body"));
         m.style.opacity = 1;

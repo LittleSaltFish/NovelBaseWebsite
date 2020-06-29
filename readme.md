@@ -160,7 +160,7 @@
 |    fans_id    | int(8)  |       |  PRI  |         | auto_increment |
 |   user_id1    | int(8)  |       |       |         |                |
 |   user_id2    | int(8)  |       |       |         |                |
-| follow_statue | int(10) |       |       |   -1    |                |
+| follow_statue | int(10) |       |       |   1    |                |
 
 #### star
 
@@ -170,7 +170,7 @@
 |   user_id   | int(1)  |       |       |         |                |
 |   book_id   | int(8)  |       |       |         |                |
 |  book_mark  | int(8)  |       |       |         |                |
-| star_statue | int(10) |       |       |   -1    |                |
+| star_statue | int(10) |       |       |   1    |                |
 
 #### inform
 

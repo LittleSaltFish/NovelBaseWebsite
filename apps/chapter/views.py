@@ -25,14 +25,17 @@ def format_chapter(rows):
                     'is_delete': row[2],
                     'chapter_id': row[3],
                     # 'text': row[4],
-                    'text':content,
+                    'chapter_content':content,
                     'chapter_img_url': row[5],
                     'chapter_introduction': row[6],
                     'chapter_hot_rate': row[7],
                     'chapter_name': row[8],
                     'chapter_word_count': row[9],
                     'book_id_id': row[10],
-                    'user_id_id': row[11]}
+                    'user_id_id': row[11],
+                    'chapter_position':row[12],
+                    'chapter_statue':row[13]
+                    }
         form_rows.append(rows_dic)
     return form_rows
 

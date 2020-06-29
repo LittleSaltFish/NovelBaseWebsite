@@ -68,7 +68,9 @@ def format_book(rows):
                     'book_hot_rate': row[6],
                     'book_name': row[7],
                     'book_word_count': row[8],
-                    'user_id': row[9], }
+                    'user_id': row[9],
+                    'book_statue':row[10],
+                    }
         form_rows.append(rows_dic)
     return form_rows
 

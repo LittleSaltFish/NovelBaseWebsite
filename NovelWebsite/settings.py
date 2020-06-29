@@ -28,7 +28,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'chapter',  # 章节
-    'star',  # 收藏
     'user',  # 用户
     'book',  # 书籍
     'tinymce',  # 富文本编辑器
@@ -132,4 +131,5 @@ TINYMCE_DEFAULT_CONFIG = {
     'width': 600,
     'height': 800,
     'plugins': "advlist,autolink,lists,link,image,charmap,print,preview,anchor,visualblocks,code,fullscreen,insertdatetime,media,table,paste,bbcode,help,wordcount,toc,link,autosave",
+    'language':'zh_CN'
 }
