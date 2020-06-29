@@ -27,6 +27,9 @@ class Book(BaseModel):
         verbose_name = '书籍信息库'
         verbose_name_plural = verbose_name
 
+
+
+    
 class BookComment(BaseModel):
     comment_id: models.AutoField(
         verbose_name='评论编号', primary_key=True)

@@ -1,19 +1,21 @@
 {% extends 'base.html' %}
 
 {%block content%}
-<div>{{all_rows}}</div>
+<!-- <div>{{all_chapter_rows}}</div>
+<br>
+<div>{{all_book_rows}}</div> -->
 
 <div class="container">
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
 				<ol class="carousel-indicators">
-					{% for row in all_rows%}
+					{% for row in all_book_rows%}
 					<li data-target="#carouselExampleCaptions" data-slide-to={{forloop.counter0}} class="active"></li>
 					{%endfor%}
 				</ol>
 				<div class="carousel-inner">
-					{% for row in all_rows%}
+					{% for row in all_book_rows%}
 					{%if forloop.first%}
 					<div class="carousel-item active">
 						<img src={{row.book_img_url}} class="d-block w-100" alt="...">
@@ -84,11 +86,14 @@
 
 					</div>
 					<div class="row">
-						{% for row in all_rows%}
+						{% for row in all_book_rows%}
 						<div class="col-md-4">
 							<div class="thumbnail">
 								<!-- <img alt="300x200" src="6.jpg" /> -->
 								<div class="caption">
+									{%if not row.book_img_url == "-1" %}
+									<img class="img-thumbnail" src={{row.book_img_url}} alt="图床炸了">
+									{%endif%}
 									<h3>
 										{{row.book_name}}
 									</h3>
@@ -111,41 +116,33 @@
 												<h4 class="alert-heading">本周强推</h4>
 
 											</div>
-											<div id="carouselExampleCaptions" class="carousel slide"
+											<div id="carouselExampleCaptions2" class="carousel slide"
 												data-ride="carousel">
 												<ol class="carousel-indicators">
-													{% for row in all_rows%}
+													{% for row in all_chapter_rows%}
 													<li data-target="#carouselExampleCaptions" data-slide-to={{forloop.counter0}} class="active"></li>
 													{%endfor%}
 												</ol>
 												<div class="carousel-inner">
-													{% for row in all_rows%}
+													{% for row in all_chapter_rows%}
 													{%if forloop.first%}
 													<div class="carousel-item active">
-														<img src={{row.book_img_url}} class="d-block w-100" alt="...">
+														<img src={{row.chapter_img_url}} class="d-block w-100" alt="...">
 														<div class="carousel-caption d-none d-md-block">
-															<h5>{{row.book_name}}</h5>
-															<p>{{row.book_introduction}}</p>
+															<h5>{{row.chapter_name}}</h5>
+															<p>{{row.chapter_introduction}}</p>
 														</div>
 													</div>
 													{%else%}
 													<div class="carousel-item">
-														<img src={{row.book_img_url}} class="d-block w-100" alt="...">
+														<img src={{row.chapter_img_url}} class="d-block w-100" alt="...">
 														<div class="carousel-caption d-none d-md-block">
-															<h5>{{row.book_name}}</h5>
-															<p>{{row.book_introduction}}</p>
+															<h5>{{row.chapter_name}}</h5>
+															<p>{{row.chapter_introduction}}</p>
 														</div>
 													</div>
 													{%endif%}
 													{%endfor%}
-													<div class="carousel-item">
-														<img src="5.png" class="d-block w-100" alt="...">
-														<div class="carousel-caption d-none d-md-block">
-															<h5>Third slide label</h5>
-															<p>Praesent commodo cursus magna, vel scelerisque nisl
-																consectetur.</p>
-														</div>
-													</div>
 												</div>
 												<a class="carousel-control-prev" href="#carouselExampleCaptions"
 													role="button" data-slide="prev">
@@ -280,7 +277,7 @@
 											aria-labelledby="nav-home-tab">
 											<div class="card-group">
 												<div class="card">
-													<img src="..." class="card-img-top" alt="...">
+													<img src="http://p.ananas.chaoxing.com/star3/origin/4cf6e6d3a180392f71227abb9d6ed4a9.png" class="card-img-top" alt="...">
 													<div class="card-body">
 														<h5 class="card-title">Card title</h5>
 														<p class="card-text">This is a wider card with supporting text
@@ -294,7 +291,7 @@
 													</div>
 												</div>
 												<div class="card">
-													<img src="..." class="card-img-top" alt="...">
+													<img src="http://p.ananas.chaoxing.com/star3/origin/4cf6e6d3a180392f71227abb9d6ed4a9.png" class="card-img-top" alt="...">
 													<div class="card-body">
 														<h5 class="card-title">Card title</h5>
 														<p class="card-text">This card has supporting text below as a
@@ -306,7 +303,7 @@
 													</div>
 												</div>
 												<div class="card">
-													<img src="..." class="card-img-top" alt="...">
+													<img src="http://p.ananas.chaoxing.com/star3/origin/4cf6e6d3a180392f71227abb9d6ed4a9.png" class="card-img-top" alt="...">
 													<div class="card-body">
 														<h5 class="card-title">Card title</h5>
 														<p class="card-text">This is a wider card with supporting text
@@ -328,7 +325,7 @@
 											aria-labelledby="nav-profile-tab">
 											<div class="card-group">
 												<div class="card">
-													<img src="..." class="card-img-top" alt="...">
+													<img src="http://p.ananas.chaoxing.com/star3/origin/4cf6e6d3a180392f71227abb9d6ed4a9.png" class="card-img-top" alt="...">
 													<div class="card-body">
 														<h5 class="card-title">Card title</h5>
 														<p class="card-text">This is a wider card with supporting text
@@ -342,7 +339,7 @@
 													</div>
 												</div>
 												<div class="card">
-													<img src="..." class="card-img-top" alt="...">
+													<img src="http://p.ananas.chaoxing.com/star3/origin/4cf6e6d3a180392f71227abb9d6ed4a9.png" class="card-img-top" alt="...">
 													<div class="card-body">
 														<h5 class="card-title">Card title</h5>
 														<p class="card-text">This card has supporting text below as a
@@ -354,7 +351,7 @@
 													</div>
 												</div>
 												<div class="card">
-													<img src="..." class="card-img-top" alt="...">
+													<img src="http://p.ananas.chaoxing.com/star3/origin/4cf6e6d3a180392f71227abb9d6ed4a9.png" class="card-img-top" alt="...">
 													<div class="card-body">
 														<h5 class="card-title">Card title</h5>
 														<p class="card-text">This is a wider card with supporting text
@@ -376,7 +373,7 @@
 											aria-labelledby="nav-contact-tab">
 											<div class="card-group">
 												<div class="card">
-													<img src="..." class="card-img-top" alt="...">
+													<img src="http://p.ananas.chaoxing.com/star3/origin/4cf6e6d3a180392f71227abb9d6ed4a9.png" class="card-img-top" alt="...">
 													<div class="card-body">
 														<h5 class="card-title">Card title</h5>
 														<p class="card-text">This is a wider card with supporting text
@@ -390,7 +387,7 @@
 													</div>
 												</div>
 												<div class="card">
-													<img src="..." class="card-img-top" alt="...">
+													<img src="http://p.ananas.chaoxing.com/star3/origin/4cf6e6d3a180392f71227abb9d6ed4a9.png" class="card-img-top" alt="...">
 													<div class="card-body">
 														<h5 class="card-title">Card title</h5>
 														<p class="card-text">This card has supporting text below as a
@@ -402,7 +399,7 @@
 													</div>
 												</div>
 												<div class="card">
-													<img src="..." class="card-img-top" alt="...">
+													<img src="http://p.ananas.chaoxing.com/star3/origin/4cf6e6d3a180392f71227abb9d6ed4a9.png" class="card-img-top" alt="...">
 													<div class="card-body">
 														<h5 class="card-title">Card title</h5>
 														<p class="card-text">This is a wider card with supporting text
@@ -424,7 +421,7 @@
 											aria-labelledby="nav-contact1-tab">
 											<div class="card-group">
 												<div class="card">
-													<img src="..." class="card-img-top" alt="...">
+													<img src="http://p.ananas.chaoxing.com/star3/origin/4cf6e6d3a180392f71227abb9d6ed4a9.png" class="card-img-top" alt="...">
 													<div class="card-body">
 														<h5 class="card-title">Card title</h5>
 														<p class="card-text">This is a wider card with supporting text
@@ -438,7 +435,7 @@
 													</div>
 												</div>
 												<div class="card">
-													<img src="..." class="card-img-top" alt="...">
+													<img src="http://p.ananas.chaoxing.com/star3/origin/4cf6e6d3a180392f71227abb9d6ed4a9.png" class="card-img-top" alt="...">
 													<div class="card-body">
 														<h5 class="card-title">Card title</h5>
 														<p class="card-text">This card has supporting text below as a
@@ -450,7 +447,7 @@
 													</div>
 												</div>
 												<div class="card">
-													<img src="..." class="card-img-top" alt="...">
+													<img src="http://p.ananas.chaoxing.com/star3/origin/4cf6e6d3a180392f71227abb9d6ed4a9.png" class="card-img-top" alt="...">
 													<div class="card-body">
 														<h5 class="card-title">Card title</h5>
 														<p class="card-text">This is a wider card with supporting text
@@ -472,7 +469,7 @@
 											aria-labelledby="nav-contact2-tab">
 											<div class="card-group">
 												<div class="card">
-													<img src="..." class="card-img-top" alt="...">
+													<img src="http://p.ananas.chaoxing.com/star3/origin/4cf6e6d3a180392f71227abb9d6ed4a9.png" class="card-img-top" alt="...">
 													<div class="card-body">
 														<h5 class="card-title">Card title</h5>
 														<p class="card-text">This is a wider card with supporting text
@@ -486,7 +483,7 @@
 													</div>
 												</div>
 												<div class="card">
-													<img src="..." class="card-img-top" alt="...">
+													<img src="http://p.ananas.chaoxing.com/star3/origin/4cf6e6d3a180392f71227abb9d6ed4a9.png" class="card-img-top" alt="...">
 													<div class="card-body">
 														<h5 class="card-title">Card title</h5>
 														<p class="card-text">This card has supporting text below as a
@@ -498,7 +495,7 @@
 													</div>
 												</div>
 												<div class="card">
-													<img src="..." class="card-img-top" alt="...">
+													<img src="http://p.ananas.chaoxing.com/star3/origin/4cf6e6d3a180392f71227abb9d6ed4a9.png" class="card-img-top" alt="...">
 													<div class="card-body">
 														<h5 class="card-title">Card title</h5>
 														<p class="card-text">This is a wider card with supporting text

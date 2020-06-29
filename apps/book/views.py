@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.db import connection
 from django.views.generic import View
 from book.models import Book
-from chapter.views import format_chapter, get_chapter_by_chapter_id
+from chapter.views import format_chapter, get_chapter_by_chapter_id, get_all_chapters
 
 # Create your views here.
 
@@ -98,7 +98,8 @@ def home(request):
     # rows = cursor.fetchall()
     # form_rows = format_book(rows)
     format_all_book_rows = get_all_books()
-    return render(request, 'theFrontPage.html', {"all_rows": format_all_book_rows})
+    format_all_chapter_rows = get_all_chapters()
+    return render(request, 'theFrontPage.html', {"all_book_rows": format_all_book_rows, "all_chapter_rows": format_all_chapter_rows})
 
 
 def SearchResult(request):
