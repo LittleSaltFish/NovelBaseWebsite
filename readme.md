@@ -24,27 +24,21 @@
 
 <!-- /TOC -->
 
-## LATEST UPGRADE
-
-- 新增了管理员系统
-- 解决了语言、时区问题
-- 优化了文件结构，app全搁文件夹里了
-
 ## PROGRESS
 
 ### 数据库端
 
-- [ ] 数据库设计
-- [ ] 语句设计
-- [ ] 作为备份的触发器和表结构设计
-- [ ] 密码加盐
+- [x] 数据库设计 @全组成员
+- [x] 语句设计 @高楠希，王汝婷
+- [x] 作为备份的触发器和表结构设计 @高楠希，王汝婷
+- [x] 密码加盐 @自带
 
 ### 网页端
 
 - [x] 搜索功能 @LittleSaltFish
 - [x] 网页间跳转 @LittleSaltFish
 - [x] 弹出框操作 @LittleSaltFish
-- [ ] 登录相关
+- [x] 登录相关@LittleSaltFish
 - [x] 搜索防空跳转 @LittleSaltFish
 - [ ] 防sql注入 <!-- NOTE 可以尝试更改结束符防注入/设计权限防止操作 -->
 - [ ] 图片自动调节大小
@@ -58,11 +52,19 @@
 - [ ] 用户系统-普通用户
 - [x] 吉祥物挂件 @LittleSaltFish
 - [x] 分享系统 @吴漾
-- [ ] 算法推荐
+- [ ] 算法推荐 @吕亦航
 - [x] 图片系统 @LittleSaltFish
 - [x] 字体插件 @LittleSaltFish
 - [ ] 高级搜索
 - [ ] 打赏系统
+
+## 前端
+
+- [x] 首页 @吕亦航
+- [x] 用户页 @钟旭鹏
+- [x] 搜索结果页 @LittleSaltFish
+- [x] js部分、弹窗部分 @LittleSaltFish
+- [x] 详情页 @吴漾
 
 ## ABOUT
 
@@ -82,7 +84,9 @@
 | :----: | :------------------------: | :--------------------------------: |
 | 咸某人 | 高楠希<br>王汝婷<br>咸某人 | 钟旭鹏<br>吕奕航<br>吴漾<br>咸某人 |
 
-~~我们的口号是：**将作大死进行到底！**~~ :+1:
+我们的口号是：
+~~**将作大死进行到底！**~~ :+1:
+建立高质量多方位的网络文学平台，不求数量的宏大，但求质量的上乘和形式的多元
 
 ## DATABASE STRUCTURE DESIGN
 
@@ -133,7 +137,7 @@
 |   zip_book_mark    |  int(8)   |       |       |         |                |
 | zip_follow_user_id | char(800) |       |       |         |                |
 
-#### user_message
+#### user
 
 (each user has a table , name as userid)
 
@@ -147,33 +151,36 @@
 |       grade       |  int(1)  |       |       |         |                |
 |       Email       | char(50) |       |       |         |                |
 | user_introduction | char(50) |       |       |         |                |
+|    user_statue    | int(10)  |       |       |   -1    |                |
 
 #### follow
 
-|    Field    |  Type  | Null  |  Key  | Default |     Extra      |
-| :---------: | :----: | :---: | :---: | :-----: | :------------: |
-|   fans_id   | int(8) |       |  PRI  |         | auto_increment |
-|  user_id1   | int(8) |       |       |         |                |
-| follow_flag | int(1) |       |       |         |                |
-|  user_id2   | int(8) |       |       |         |                |
+|     Field     |  Type   | Null  |  Key  | Default |     Extra      |
+| :-----------: | :-----: | :---: | :---: | :-----: | :------------: |
+|    fans_id    | int(8)  |       |  PRI  |         | auto_increment |
+|   user_id1    | int(8)  |       |       |         |                |
+|   user_id2    | int(8)  |       |       |         |                |
+| follow_statue | int(10) |       |       |   -1    |                |
 
 #### star
 
-|   Field   |  Type  | Null  |  Key  | Default |     Extra      |
-| :-------: | :----: | :---: | :---: | :-----: | :------------: |
-|  star_id  | int(8) |       |  PRI  |         | auto_increment |
-|  user_id  | int(1) |       |       |         |                |
-|  book_id  | int(8) |       |       |         |                |
-| book_mark | int(8) |       |       |         |                |
+|    Field    |  Type   | Null  |  Key  | Default |     Extra      |
+| :---------: | :-----: | :---: | :---: | :-----: | :------------: |
+|   star_id   | int(8)  |       |  PRI  |         | auto_increment |
+|   user_id   | int(1)  |       |       |         |                |
+|   book_id   | int(8)  |       |       |         |                |
+|  book_mark  | int(8)  |       |       |         |                |
+| star_statue | int(10) |       |       |   -1    |                |
 
 #### inform
 
-|    Field    |  Type  | Null  |  Key  | Default |     Extra      |
-| :---------: | :----: | :---: | :---: | :-----: | :------------: |
-|  inform_id  | int(8) |       |  PRI  |         | auto_increment |
-| inform_flag | int(1) |       |       |         |                |
-|   root_id   | int(8) |       |       |         |                |
-|   user_id   | int(8) |       |       |         |                |
+|     Field     |  Type   | Null  |  Key  | Default |     Extra      |
+| :-----------: | :-----: | :---: | :---: | :-----: | :------------: |
+|   inform_id   | int(8)  |       |  PRI  |         | auto_increment |
+|  inform_flag  | int(1)  |       |       |         |                |
+|    root_id    | int(8)  |       |       |         |                |
+|    user_id    | int(8)  |       |       |         |                |
+| inform_statue | int(10) |       |       |   -1    |                |
 
 #### book~~massage~~
 
@@ -188,6 +195,7 @@
 |     book_name     | char(50)  |       |       |         |                |
 |      user_id      |  int(8)   |       |       |  <-1>   |                |
 |  book_word_count  |  int(10)  |       |       |         |                |
+|    book_statue    |  int(10)  |       |       |   -1    |                |
 
 #### ~~novel~~chapter
 
@@ -202,35 +210,41 @@
 |   chapter_hot_rate   |  int(10)   |       |       |         |                |
 |     chapter_name     |  char(50)  |       |       |         |                |
 |  chapter_word_count  |  int(10)   |       |       |         |                |
-|       content        | char(5000) |       |       |         |                |
+|   chapter_content    | char(5000) |       |       |         |                |
+|    chapter_statue    |  int(10)   |       |       |   -1    |                |
 
 #### chapter_comment
 
-|          Field          |   Type   | Null  |  Key  | Default |     Extra      |
-| :---------------------: | :------: | :---: | :---: | :-----: | :------------: |
-|       comment_id        |  int(8)  |       |  PRI  |         | auto_increment |
-|       chapter_id        |  int(8)  |       |       |         |                |
-| chapter_comment_img_url | char(50) |       |       |  <-1>   |                |
-|         user_id         |  int(8)  |       |       |  <-1>   |                |
+|          Field          |    Type    | Null  |  Key  | Default |     Extra      |
+| :---------------------: | :--------: | :---: | :---: | :-----: | :------------: |
+|       comment_id        |   int(8)   |       |  PRI  |         | auto_increment |
+|       chapter_id        |   int(8)   |       |       |         |                |
+| chapter_comment_img_url |  char(50)  |       |       |  <-1>   |                |
+|         user_id         |   int(8)   |       |       |  <-1>   |                |
+|     comment_content     | char(5000) |       |       |         |                |
+|     comment_statue      |  int(10)   |       |       |   -1    |                |
 
 #### book_comment
 
-|        Field         |   Type   | Null  |  Key  | Default |     Extra      |
-| :------------------: | :------: | :---: | :---: | :-----: | :------------: |
-|      comment_id      |  int(8)  |       |  PRI  |         | auto_increment |
-|       book_id        |  int(8)  |       |       |         |                |
-| book_comment_img_url | char(50) |       |       |  <-1>   |                |
-|       user_id        |  int(8)  |       |       |  <-1>   |                |
+|        Field         |    Type    | Null  |  Key  | Default |     Extra      |
+| :------------------: | :--------: | :---: | :---: | :-----: | :------------: |
+|      comment_id      |   int(8)   |       |  PRI  |         | auto_increment |
+|       book_id        |   int(8)   |       |       |         |                |
+| book_comment_img_url |  char(50)  |       |       |  <-1>   |                |
+|       user_id        |   int(8)   |       |       |  <-1>   |                |
+|   comment_content    | char(5000) |       |       |         |                |
+|    comment_statue    |  int(10)   |       |       |   -1    |                |
 
 #### tag
 
 (each tag has a table , name as bookid)
 
-|   Field    |  Type  | Null  |  Key  | Default | Extra |
-| :--------: | :----: | :---: | :---: | :-----: | :---: |
-|   tag_id   | int(8) |       |  PRI  |         |       |
-|  book_id   | int(8) |       |       |         |       |
-| chapter_id | int(8) |       |       |         |       |
+|   Field    |  Type   | Null  |  Key  | Default | Extra |
+| :--------: | :-----: | :---: | :---: | :-----: | :---: |
+|   tag_id   | int(8)  |       |  PRI  |         |       |
+|  book_id   | int(8)  |       |       |         |       |
+| chapter_id | int(8)  |       |       |         |       |
+| tag_statue | int(10) |       |       |   -1    |       |
 
 #### tag_massage
 
@@ -239,9 +253,9 @@
 |    Field     |   Type   | Null  |  Key  | Default |     Extra      |
 | :----------: | :------: | :---: | :---: | :-----: | :------------: |
 |    tag_id    |  int(8)  |       |  PRI  |         | auto_increment |
-| tag_img_url  | char(50) |       |       |  <-1>   |                |
 | tag_hot_rate |  int(8)  |       |       |         |                |
 |   tag_name   | char(50) |       |       |         |     unique     |
+|  tag_statue  | int(10)  |       |       |   -1    |                |
 
 ## HTML MODEL DESIGN
 
